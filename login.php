@@ -1,18 +1,22 @@
-<!-- Header Einfügen -->
-<?php include 'core/header.php'; ?>
+<?php include "core/header.php" ?>
+    <main class="page login-page">
+        <section class="clean-block clean-form dark">
+            <div class="container">
+                <div class="block-heading">
+                    <h2 class="text-info">Log In</h2>
+                    <p>Bitte melden sie sich hier mit ihren Login Daten an.</p>
+                </div>
+                <form>
+                    <div class="form-group"><label for="email">Email</label><input class="form-control item" type="email" id="email"></div>
+                    <div class="form-group"><label for="password">Passwort</label><input class="form-control" type="password" id="password"></div><img class="captcha" src="assets/img/images.png">
+                    <div class="form-group"><label>Captcha</label><input class="form-control" type="text"></div>
+                    <div class="form-group">
+                        <div class="form-check"><input class="form-check-input" type="checkbox" id="checkbox"><label class="form-check-label" for="checkbox">Erinnere dich</label></div>
+                    </div><button class="btn btn-primary btn-block" type="submit">Log In</button>
+                    <small>Du hast noch keinen Account? <a href="registration.php">Regiestriere</a> dich jetzt! </small>
+                  </form>
 
-<body>
-    <div class="login-dark">
-        <form method="post">
-            <h2 class="sr-only">Login Form</h2>
-            <div class="illustration"><i class="icon ion-ios-locked-outline"></i></div>
-            <div class="form-group"><input class="form-control" type="email" name="email" placeholder="Email"></div>
-            <div class="form-group"><input class="form-control" type="password" name="password" placeholder="Password"></div><img class="img-fluid" src="assets/img/captcha.png" style="width: 240px;"><input class="form-control" type="password" placeholder="Captcha">
-            <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Log In</button></div><a class="forgot" href="#">Forgot your email or password?</a></form>
-    </div>
-    <script src="assets/js/jquery.min.js"></script>
-    <script src="assets/bootstrap/js/bootstrap.min.js"></script>
-</body>
-
-<!-- Footer Einfügen -->
-<?php include 'core/footer.php'; ?>
+            </div>
+        </section>
+    </main>
+  <?php include "core/footer.php" ?>

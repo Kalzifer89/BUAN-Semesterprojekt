@@ -1,51 +1,36 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 
 <head>
-
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="">
-
-  <title>Svens Shop</title>
-
-  <!-- Bootstrap core CSS -->
-  <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
-  <!-- Custom styles for this template -->
-  <link href="css/shop-homepage.css" rel="stylesheet">
-    <!-- Custom styles for this template -->
-  <link rel="stylesheet" href="css/Login-Form-Dark.css">
-
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>Home - Buissness Anwendungen im Internet</title>
+    <meta name="description" content="Das Semester Projekt">
+    <link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/fonts/simple-line-icons.min.css">
+    <link rel="stylesheet" href="assets/css/baguetteBox.min.css">
+    <link rel="stylesheet" href="assets/css/smoothproducts.css">
 </head>
 
 <body>
+    <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
+        <div class="container"><a class="navbar-brand logo" href="#">iSchool</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
+            <div class="collapse navbar-collapse"
+                id="navcol-1">
+                <ul class="nav navbar-nav ml-auto">
+                    <li class="nav-item" role="presentation"><a class="nav-link active" href="index.php">Home</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="pricing.php">Bonus</a></li>
+                    <!-- <li class="nav-item" role="presentation"><a class="nav-link" href="product-page.php">Product</a></li> -->
+                    <!-- <li class="nav-item" role="presentation"><a class="nav-link" href="payment-page.php">Payment</a></li> -->
+                    <!-- <li class="nav-item" role="presentation"><a class="nav-link" href="shopping-cart.php">Shopping Cart</a></li> -->
 
-  <!-- Navigation -->
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
-    <div class="container">
-      <a class="navbar-brand" href="#">Svens Shop</a>
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarResponsive">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item active">
-            <a class="nav-link" href="#">Home
-              <span class="sr-only">(current)</span>
-            </a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">About</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Services</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#">Contact</a>
-          </li>
-        </ul>
-      </div>
-    </div>
-  </nav>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="login.php">Login</a></li>
+                    <!-- <li class="nav-item" role="presentation"><a class="nav-link" href="registration.php">Register</a></li> -->
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="catalog-page.php">Shop</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="contact-us.php">Contact Us</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link active" href="#"><img src="assets/img/Download%20(2).png" width="20"></a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link active" href="#"><img src="assets/img/britishflag.jpg" width="20"></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
