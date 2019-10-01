@@ -28,8 +28,8 @@
                     <!-- <li class="nav-item" role="presentation"><a class="nav-link" href="registration.php">Register</a></li> -->
                     <li class="nav-item" role="presentation"><a class="nav-link" href="catalog-page.php">Shop</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="contact-us.php">Contact Us</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link active" href="#"><img src="assets/img/Download%20(2).png" width="20"></a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link active" href="#"><img src="assets/img/britishflag.jpg" width="20"></a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link active" href="#" onclick="SpracheDE()"><img src="assets/img/Download%20(2).png" width="20"></a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link active" href="#" onclick="SpracheEN()"><img src="assets/img/britishflag.jpg" width="20"></a></li>
                 </ul>
             </div>
         </div>

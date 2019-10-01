@@ -10,3 +10,12 @@ if ($('.clean-product').length > 0) {
     });
 }
 
+function SpracheDE() {
+document.cookie="language=0; max-age=86400; path=/";
+location.reload();
+}
+
+function SpracheEN() {
+document.cookie="language=1; max-age=86400; path=/";
+location.reload();
+}

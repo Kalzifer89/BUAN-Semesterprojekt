@@ -1,23 +1,24 @@
 <?php include "core/header.php" ?>
+<?php include "language/index_lang.php" ?>
     <main class="page landing-page">
         <section class="clean-block clean-hero" style="background-image:url(&quot;assets/img/tech/image4.jpg&quot;);color:rgba(9, 162, 255, 0.85);">
             <div class="text">
-                <h2>Wir Digitalisieren ihre Schule!</h2>
-                <p>Wir statten ihre Schule mit Apple Hard und Software aus und helfen ihnen ihre Schule Up to Date zu bekommen.</p><button class="btn btn-outline-light btn-lg" type="button">Jetzt Kaufen</button></div>
+                <h2><?php echo $indexlang [$_COOKIE['language']][1]; ?></h2>
+                <p><?php echo $indexlang [$_COOKIE['language']][2]; ?></p><button class="btn btn-outline-light btn-lg" type="button"><?php echo $indexlang [$_COOKIE['language']][3]; ?></button></div>
         </section>
         <section class="clean-block clean-info dark">
             <div class="container">
                 <div class="block-heading">
                     <h2 class="text-info">Info</h2>
-                    <p>Wir sind ein Online Shop der Vertretern für Apple Hardware besondere Konditionen und Boni bietet.</p>
+                    <p><?php echo $indexlang [$_COOKIE['language']][4]; ?></p>
                 </div>
                 <div class="row align-items-center">
                     <div class="col-md-6"><img class="img-thumbnail" src="assets/img/brooke-cagle-g1Kr4Ozfoac-unsplash.jpg"></div>
                     <div class="col-md-6">
-                        <h3>Werden sie jetzt Mitglied</h3>
+                        <h3><?php echo $indexlang [$_COOKIE['language']][5]; ?></h3>
                         <div class="getting-started-info">
-                            <p>Wenn sie jetzt unserem Netzwerk beitreten, bekommen sie Spezielle Konditionen wenn sie viel Hardware verkaufen. Außerdem berechnen wir ihnen Online ihre nächste Brutto Lohnabrechnung.</p>
-                        </div><button class="btn btn-outline-primary btn-lg" type="button">Beitreten</button></div>
+                            <p><?php echo $indexlang [$_COOKIE['language']][6]; ?></p>
+                        </div><button class="btn btn-outline-primary btn-lg" type="button"><?php echo $indexlang [$_COOKIE['language']][7]; ?></button></div>
                 </div>
             </div>
         </section>
@@ -25,24 +26,24 @@
             <div class="container">
                 <div class="block-heading">
                     <h2 class="text-info">Features</h2>
-                    <p>Unser Webshop hat viele Tolle Funktionen:</p>
+                    <p><?php echo $indexlang [$_COOKIE['language']][8]; ?></p>
                 </div>
                 <div class="row justify-content-center">
                     <div class="col-md-5 feature-box"><i class="icon-star icon"></i>
                         <h4>Bootstrap 4</h4>
-                        <p>Wir benutzen die Aktuelle Bootstrap 4 Version mit ihren vielen Vorteilen und Nachteilen.</p>
+                        <p><?php echo $indexlang [$_COOKIE['language']][9]; ?></p>
                     </div>
                     <div class="col-md-5 feature-box"><i class="icon-pencil icon"></i>
-                        <h4>Anpassbar</h4>
-                        <p>Unsere Webseite bietet ein Helles und ein Dunkles Farbschema was sich jederzeit ändern lässt.</p>
+                        <h4><?php echo $indexlang [$_COOKIE['language']][10]; ?></h4>
+                        <p><?php echo $indexlang [$_COOKIE['language']][11]; ?></p>
                     </div>
                     <div class="col-md-5 feature-box"><i class="icon-screen-smartphone icon"></i>
                         <h4>Responsive</h4>
-                        <p>Unsere Webseite passt sich ihrem Bildschirm an und sieht auf allen Endgeräten gut aus.</p>
+                        <p><?php echo $indexlang [$_COOKIE['language']][12]; ?></p>
                     </div>
                     <div class="col-md-5 feature-box"><i class="icon-refresh icon"></i>
-                        <h4>Zu allen Browsern passend</h4>
-                        <p>Sie können unsere Webseite in jedem Browser ansehen, egal ob Chrome, Edge oder Firefox.</p>
+                        <h4><?php echo $indexlang [$_COOKIE['language']][13]; ?></h4>
+                        <p><?php echo $indexlang [$_COOKIE['language']][14]; ?></p>
                     </div>
                 </div>
             </div>
@@ -51,7 +52,7 @@
             <div class="container">
                 <div class="block-heading">
                     <h2 class="text-info">Screenshot</h2>
-                    <p>Hier sehen sie ein paar Screenshots der fertigen Webseite um sich schonmal einen Überlick zu machen</p>
+                    <p><?php echo $indexlang [$_COOKIE['language']][15]; ?></p>
                 </div>
                 <div class="carousel slide" data-ride="carousel" id="carousel-1">
                     <div class="carousel-inner" role="listbox">
@@ -72,15 +73,15 @@
         <section class="clean-block about-us">
             <div class="container">
                 <div class="block-heading">
-                    <h2 class="text-info">Über uns</h2>
-                    <p>Hier sehen sie die Köpfe hinter der Webseite:</p>
+                    <h2 class="text-info"><?php echo $indexlang [$_COOKIE['language']][16]; ?></h2>
+                    <p><?php echo $indexlang [$_COOKIE['language']][17]; ?></p>
                 </div>
                 <div class="row justify-content-center">
                     <div class="col-sm-6 col-lg-4">
                         <div class="card clean-card text-center"><img class="card-img-top w-100 d-block" src="assets/img/pirat_sven2245-1000x667.jpg">
                             <div class="card-body info">
                                 <h4 class="card-title">Sven Krumbeck</h4>
-                                <p class="card-text">Webdesigner, Multimedia Mensch und Politiker.</p>
+                                <p class="card-text"><?php echo $indexlang [$_COOKIE['language']][18]; ?></p>
                                 <div class="icons"><a href="#"><i class="icon-social-facebook"></i></a><a href="#"><i class="icon-social-instagram"></i></a><a href="#"><i class="icon-social-twitter"></i></a></div>
                             </div>
                         </div>
