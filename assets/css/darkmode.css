@@ -1,0 +1,56 @@
+.bg-white {
+  background-color: black !important;
+}
+
+.navbar-light .navbar-nav .nav-link {
+    color: white !important;
+    font-size: 1rem;
+}
+
+.navbar-light .navbar-nav .switch {
+    color: white !important;
+    filter: invert(1);
+}
+
+
+.navbar-light .navbar-brand, .navbar-light .navbar-brand:focus, .navbar-light .navbar-brand:hover {
+    color: white !important;
+}
+
+.clean-block.clean-hero .text {
+  color: black !important;
+  font-size: 2.0rem !important;
+}
+
+.clean-block.clean-hero .text p {
+  color: black !important;
+  font-size: 2.0rem !important;
+}
+
+.btn-outline-light {
+    color: black !important;
+    font-size: 2.0rem !important;
+}
+
+.text-info {
+    color: white !important;
+}
+
+.clean-block.clean-info {
+  background-color: black !important;
+}
+
+.clean-block {
+  background-color: black !important;
+  font-size: 2.0rem;
+}
+
+body p, h3, h4 {
+    color: white !important;
+    font-size: 1.5rem;
+}
+
+.clean-card p {
+  color: black !important;
+  font-size: 1.5rem!important;
+}

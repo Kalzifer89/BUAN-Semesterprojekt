@@ -10,6 +10,13 @@
     <link rel="stylesheet" href="assets/fonts/simple-line-icons.min.css">
     <link rel="stylesheet" href="assets/css/baguetteBox.min.css">
     <link rel="stylesheet" href="assets/css/smoothproducts.css">
+    <!-- Wenn Darkmode Cookie gesetzt ist, Darkmode CSS Laden -->
+    <?php
+      if( isset(($_COOKIE['darkmode'])))
+      {
+        echo "<link rel=\"stylesheet\" href=\"assets/css/darkmode.css\">";
+      }
+    ?>
 </head>
 
 <body>
@@ -18,7 +25,7 @@
             <div class="collapse navbar-collapse"
                 id="navcol-1">
                 <ul class="nav navbar-nav ml-auto">
-                    <li class="nav-item" role="presentation"><a class="nav-link active" href="index.php">Home</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="index.php">Home</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="pricing.php">Bonus</a></li>
                     <!-- <li class="nav-item" role="presentation"><a class="nav-link" href="product-page.php">Product</a></li> -->
                     <!-- <li class="nav-item" role="presentation"><a class="nav-link" href="payment-page.php">Payment</a></li> -->
@@ -28,9 +35,9 @@
                     <!-- <li class="nav-item" role="presentation"><a class="nav-link" href="registration.php">Register</a></li> -->
                     <li class="nav-item" role="presentation"><a class="nav-link" href="catalog-page.php">Shop</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="contact-us.php">Contact Us</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link active" href="#" onclick="SpracheDE()"><img src="assets/img/Download%20(2).png" width="20"></a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link active" href="#" onclick="SpracheEN()"><img src="assets/img/britishflag.jpg" width="20"></a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link active" href="#" onclick="Darkmode()"><img src="assets/img/contrast-circle-512.png" width="20"></a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="#" onclick="SpracheDE()"><img src="assets/img/Download%20(2).png" width="20"></a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="#" onclick="SpracheEN()"><img src="assets/img/britishflag.jpg" width="20"></a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link switch" href="#" onclick="Darkmode()"><img src="assets/img/contrast-circle-512.png" width="20"></a></li>
                 </ul>
             </div>
         </div>

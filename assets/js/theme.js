@@ -30,5 +30,13 @@ location.reload();
 
 //Funktion für den Darkmode
 function Darkmode() {
-  
+  if (document.cookie.indexOf("darkmode") <= -1) {
+    document.cookie="darkmode=1; max-age=86400; path=/";
+    location.reload();
+  }
+  else {
+    document.cookie="darkmode=0; max-age=0; path=/";
+    location.reload();
+  }
+
 }
