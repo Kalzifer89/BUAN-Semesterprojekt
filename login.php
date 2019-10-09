@@ -1,4 +1,7 @@
 <?php include "core/header.php" ?>
+<?php include "core/captcha.php" ?>
+<?php anzeige();
+captcha (); ?>
     <main class="page login-page">
         <section class="clean-block clean-form dark">
             <div class="container">
@@ -8,7 +11,7 @@
                 </div>
                 <form>
                     <div class="form-group"><label for="email">Email</label><input class="form-control item" type="email" id="email"></div>
-                    <div class="form-group"><label for="password">Passwort</label><input class="form-control" type="password" id="password"></div><img class="captcha" src="assets/img/images.png">
+                    <div class="form-group"><label for="password">Passwort</label><input class="form-control" type="password" id="password"></div><img class="captcha" src="assets/img/captcha.png">
                     <div class="form-group"><label>Captcha</label><input class="form-control" type="text"></div>
                     <div class="form-group">
                         <div class="form-check"><input class="form-check-input" type="checkbox" id="checkbox"><label class="form-check-label" for="checkbox">Erinnere dich</label></div>
