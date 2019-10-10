@@ -17,7 +17,7 @@ function captcha ()
   $bild = imagecreate(420, 70);
   $hg = imagecolorallocate ($bild,255,255,255);
   $vg = imagecolorallocate ($bild,0,0,0);
-  $font = './assets/fonts/Glass.ttf';
+  $font = realpath('./assets/fonts/Glass.ttf');
   imagefill($bild,0,0,$hg);
   $Bildtext = $_SESSION['wert1']."+".$_SESSION['wert2']."=?";
   imagettftext($bild, 40, 0, 100, 50, $vg, $font, $Bildtext);

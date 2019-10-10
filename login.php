@@ -1,5 +1,5 @@
-<?php include "core/header.php" ?>
 <?php include "core/captcha.php" ?>
+<?php include "core/header.php" ?>
 <?php anzeige();
 captcha (); ?>
     <main class="page login-page">
@@ -9,14 +9,14 @@ captcha (); ?>
                     <h2 class="text-info">Log In</h2>
                     <p>Bitte melden sie sich hier mit ihren Login Daten an.</p>
                 </div>
-                <form>
-                    <div class="form-group"><label for="email">Email</label><input class="form-control item" type="email" id="email"></div>
-                    <div class="form-group"><label for="password">Passwort</label><input class="form-control" type="password" id="password"></div><img class="captcha" src="assets/img/captcha.png">
-                    <div class="form-group"><label>Captcha</label><input class="form-control" type="text"></div>
+                <form action="catalog-page.php" method="post">
+                    <div class="form-group"><label for="name">Username</label><input class="form-control item" type="text" id="email" name="name"></div>
+                    <div class="form-group"><label for="passwort">Passwort</label><input class="form-control" type="password" id="password" name="passwort"></div><img class="captcha" src="assets/img/captcha.png">
+                    <div class="form-group"><label>Captcha</label><input class="form-control" type="text" id="captcha" name="captcha"></div>
                     <div class="form-group">
-                        <div class="form-check"><input class="form-check-input" type="checkbox" id="checkbox"><label class="form-check-label" for="checkbox">Erinnere dich</label></div>
                     </div><button class="btn btn-primary btn-block" type="submit">Log In</button>
                     <small>Du hast noch keinen Account? <a href="registration.php">Regiestriere</a> dich jetzt! </small>
+                    <input type="hidden" name="Anmelden" value="1">
                   </form>
 
             </div>

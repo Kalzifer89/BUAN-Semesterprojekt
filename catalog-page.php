@@ -1,10 +1,12 @@
 <?php include "core/header.php" ?>
+<?php include "core/login_controller.php" ?>
     <main class="page catalog-page">
         <section class="clean-block clean-catalog dark">
             <div class="container">
                 <div class="block-heading">
                     <h2 class="text-info">SHOP</h2>
                     <p>Hier sehen sie welche Artikel sie kaufen können.</p>
+                    <?php echo $Fehlermeldung ?>
                 </div>
                 <div class="content">
                     <div class="row">
