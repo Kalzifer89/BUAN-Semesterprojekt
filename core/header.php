@@ -41,4 +41,8 @@
                 </ul>
             </div>
         </div>
+        <noscript>Bitte Java Skript Aktivieren / Please Activiate Java Script</noscript>
     </nav>
+    <!-- Andere Dateien Inlcudieren -->
+    <?php include "config/config.php" ?>
+    <?php include "language/index_lang.php" ?>
