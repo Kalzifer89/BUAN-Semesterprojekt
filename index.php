@@ -1,4 +1,10 @@
+<!-- Header einbinden -->
 <?php include "core/header.php" ?>
+<<<<<<< HEAD
+=======
+<!-- Sprachswitch einbinden -->
+<?php include "language/index_lang.php" ?>
+>>>>>>> 966ae177d883bb1fbb95fc960047042838539171
     <main class="page landing-page">
         <section class="clean-block clean-hero" style="background-image:url(&quot;assets/img/tech/image4.jpg&quot;);color:rgba(9, 162, 255, 0.85);">
             <div class="text">
