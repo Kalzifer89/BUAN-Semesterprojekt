@@ -1,5 +1,27 @@
 <?php
+///////////////////////////////////////////////
+// Semesterproject - BUAN                     //
+// Fachbereich Medien FH-Kiel - 5. Semester  //
+// Beschreibung : Controller für LoggedIn     //
+// Ersteller    : Sven Krumbeck              //
+// Stand        : 11.10.19                   //
+// Version      : 1.0                        //
+///////////////////////////////////////////////
 
+//Bei Klick auf Logout Buttion den Login Coockie Löschen
+if( isset($_POST['ausloggen']))
+      {
+          setcookie("LoggedIn", "", time() -3600);
+          setcookie("UserName", "",time() -3600);
+          setcookie("UserID", "",time() -3600);
+          setcookie("isAdmin", "",time() -3600);
+          setcookie("UserMail", "",time() -3600);
+          //Am Ende hier alle Coockies die erstellt wurden einmal killen
+          session_destroy();
+          echo "<meta http-equiv=\"refresh\" content=\"1; URL=index.php\">";
+      }
+
+//Wenn das Anmelde Formular Ausgefüllt wurde, die Datenbank Abfrage anstoßen
 if (isset($_POST['name'])) {
   //Umwandeln in Variablen für Mysql und Passwort Verschlüsselung
   $Username = $_POST['name'];
@@ -13,6 +35,17 @@ if (isset($_POST['name'])) {
   //Abfrage nach User ID //
   $DatenbankAbfrageUserID = "SELECT userID,userAdmin,userMail FROM users WHERE userName LIKE '$Username'";
   $UserIDArray = mysqli_query ($db_link, $DatenbankAbfrageUserID);
+}
+
+// Den Captcha resetten bzw nicht resetten
+// Aufruf der CAPTCHA-Funktion -------------
+if (!isset($_COOKIE['LoggedIn'])) {
+  if(!isset($_POST['name']) && !isset($_POST['registername']) )
+  {
+    $_SESSION['name'] = "";
+    $_SESSION['captcha'] = "";
+    anzeige();
+  }
 }
 
 //Bei Erfolgreichen Login Login Cookie Erstellen ansonsten Fehlermeldung
@@ -58,8 +91,8 @@ if(isset($_POST['Anmelden'])){
       echo "<meta http-equiv=\"refresh\" content=\"1; URL=index.php\">";
     }
 }
-else {
-  $Fehlermeldung = "Bitte loggen sie sich ein.";
-}
+// else {
+//   $Fehlermeldung = "Bitte loggen sie sich ein.";
+// }
 
  ?>

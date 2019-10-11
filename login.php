@@ -1,25 +1,45 @@
-<?php include "core/captcha.php" ?>
-<?php include "core/header.php" ?>
-<?php anzeige();
-captcha (); ?>
-    <main class="page login-page">
-        <section class="clean-block clean-form dark">
-            <div class="container">
-                <div class="block-heading">
-                    <h2 class="text-info">Log In</h2>
-                    <p>Bitte melden sie sich hier mit ihren Login Daten an.</p>
-                </div>
-                <form action="catalog-page.php" method="post">
-                    <div class="form-group"><label for="name">Username</label><input class="form-control item" type="text" id="email" name="name"></div>
-                    <div class="form-group"><label for="passwort">Passwort</label><input class="form-control" type="password" id="password" name="passwort"></div><img class="captcha" src="assets/img/captcha.png">
-                    <div class="form-group"><label>Captcha</label><input class="form-control" type="text" id="captcha" name="captcha"></div>
-                    <div class="form-group">
-                    </div><button class="btn btn-primary btn-block" type="submit">Log In</button>
-                    <small>Du hast noch keinen Account? <a href="registration.php">Regiestriere</a> dich jetzt! </small>
-                    <input type="hidden" name="Anmelden" value="1">
-                  </form>
+<?php
+///////////////////////////////////////////////
+// Semesterproject - BUAN                     //
+// Fachbereich Medien FH-Kiel - 5. Semester  //
+// Beschreibung : Login Seite                 //
+// Ersteller    : Sven Krumbeck              //
+// Stand        : 11.10.19                   //
+// Version      : 1.0                        //
+///////////////////////////////////////////////
 
-            </div>
-        </section>
-    </main>
-  <?php include "core/footer.php" ?>
+//Einbinden vom Captcha Skriot
+include "core/captcha.php";
+//Einbinden vom Header Skript
+include "core/header.php";
+//Einbinden vom Login Controll Skript
+include "core/login_controller.php";
+//Aufrufen der Captcha Funktion
+anzeige(); captcha();
+
+                //Wenn der User Eingelogt ist Auslog Dialog Anzeigen
+                if (isset($_COOKIE["LoggedIn"]))
+                {
+                  echo "    <main class=\"page login-page\">\n";
+                  echo "        <section class=\"clean-block clean-form dark\">\n";
+                  echo "            <div class=\"container\">";
+                                  echo "<div class=\"block-heading\">\n";
+                                  echo "    <h2 class=\"text-info\">Log In</h2>\n";
+                                  echo "    <p>Sie sind bereit erfolgreich eingelogt.</p>\n";
+                                  echo "</div>";
+                                  echo "<form action=\"login.php\" method=\"post\">\n";
+                                  echo "  <input type=\"hidden\" name=\"ausloggen\" value=\"1\">\n";
+                                  echo "<div class=\"form-group\"><label for=\"name\">Wollen sie sich wieder ausloggen?</label>";
+                                  echo "  <button class=\"btn btn-primary btn-block\" type=\"submit\">Log out</button>\n";
+                                  echo "</form>";
+                  echo "          </div>\n";
+                  echo "      </section>\n";
+                  echo "  </main>\n";
+
+                }
+                else {
+                  //Wenn der User Nicht einglogt ist, Einlog Maske zeigen
+                  include "core/login_field.php";
+                }
+
+ include "core/footer.php" ?>

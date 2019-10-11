@@ -1,4 +1,13 @@
 <?php
+///////////////////////////////////////////////
+// Semesterproject - BUAN                     //
+// Fachbereich Medien FH-Kiel - 5. Semester  //
+// Beschreibung : Captcha Generator           //
+// Ersteller    : Sven Krumbeck              //
+// Stand        : 11.10.19                   //
+// Version      : 1.0                        //
+///////////////////////////////////////////////
+
 session_start();
 
 //Funktion zum Ständig neuen Zerugen von Captcha Zahlen
