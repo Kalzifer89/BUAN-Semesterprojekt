@@ -14,7 +14,8 @@
               <div class="form-group"><label>Captcha</label><input class="form-control" type="text" id="captcha" name="captcha"></div>
               <div class="form-group">
               </div><button class="btn btn-primary btn-block" type="submit">Log In</button>
-              <small>Du hast noch keinen Account? <a href="registration.php">Regiestriere</a> dich jetzt! </small>
+              <small>Du hast noch keinen Account? <a href="registration.php">Regiestriere</a> dich jetzt!</br></small>
+              <small>Du hast dein Passwort vergessen? <a href="password-reset.php">Hier </a>wird dir geholfen!</small>
               <input type="hidden" name="Anmelden" value="1">
             </form>
           </div>

@@ -12,6 +12,8 @@ if (isset($_POST['registername'])) {
   $registername = $_POST['registername'];
   $registermail = $_POST['registermail'];
   $registerpassword = md5($_POST['registerpassword']);
+  $secretquestion = $_POST['secretquestion'];
+  $answer = $_POST['answer'];
   $salution = $_POST['salution'];
   $surname = $_POST['surname'];
   $mainname = $_POST['mainname'];
@@ -20,14 +22,15 @@ if (isset($_POST['registername'])) {
   $housenr = $_POST['housenr'];
   $postcode = $_POST['postcode'];
   $city= $_POST['city'];
+  $country= $_POST['country'];
 }
 
 //Bei Erfolgreichen Login Login Cookie Erstellen ansonsten Fehlermeldung
 //Überprüfung ob alle Felder ausgefüllt sinde
-if (isset($_POST['registrieren'])) 
+if (isset($_POST['registrieren']))
 {
-  if( empty ($_POST['registername']) or empty ($_POST['registermail']) or empty ($_POST['registerpassword']) or empty ($_POST['salution']) or empty ($_POST['surname'])
-  or empty ($_POST['mainname']) or empty ($_POST['telephone']) or empty ($_POST['street']) or empty ($_POST['housenr']) or empty ($_POST['postcode']) or empty ($_POST['city']) )
+  if( empty ($_POST['registername']) or empty ($_POST['registermail']) or empty ($_POST['registerpassword']) or empty ($_POST['secretquestion']) or empty ($_POST['questionanswer']) or empty ($_POST['salution']) or empty ($_POST['surname'])
+  or empty ($_POST['mainname']) or empty ($_POST['telephone']) or empty ($_POST['street']) or empty ($_POST['housenr']) or empty ($_POST['postcode']) or empty ($_POST['city']) or empty ($_POST['country']) )
     {
       $RegisterFehlermeldung ="Sie haben nicht alle erforderlichen Felder ausgefüllt";
     }
