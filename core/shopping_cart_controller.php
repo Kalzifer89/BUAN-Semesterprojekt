@@ -26,21 +26,22 @@ while ($zeile = mysqli_fetch_array($ProductsArray))
       $productPrice = $zeile['productPrice'];
     }
 //Session Abfragen oder erstellen wenn nicht vorhanden
-if (isset($_SESSION['shoppingcart'])) {
+if (isset($_SESSION['shoppingcart']))
+{
   //Wenn vorhanden neues Objekt in Array schreiben
+  $shoppingcart = $_SESSION['shoppingcart'];
   $newObject = array($productID,1,$productPrice);
-  array_push($_SESSION['shoppingcart'], $newObject);
+  array_push($shoppingcart, $newObject);
+  $_SESSION['shoppingcart'] = $shoppingcart;
 }
 else {
   //Wenn nicht vorhanden Arary erstellen und in Session speichern
   $shoppingcart = array
   (
-  array($productID,1,$productPrice),
+  array($productID,1,$productPrice)
   );
   $_SESSION['shoppingcart'] = $shoppingcart;
 }
-
-
 
 ?>
 
@@ -50,13 +51,18 @@ else {
             <div class="block-heading">
                 <h2 class="text-info">Warenkorb</h2>
                 <p>Hier sehen sie die Waren in ihrem Warenkorb.</p>
-                <?php echo $_SESSION['shoppingcart'][1][2]; ?>
             </div>
             <div class="content">
                 <div class="row no-gutters">
                     <div class="col-md-12 col-lg-8">
                         <div class="items">
                             <div class="product">
+                              <?php
+                              foreach ($shoppingcart as $product_ID)
+                                  {
+                                    echo $product_ID;
+                                  }
+                                    ?>
                                 <div class="row justify-content-center align-items-center">
                                     <div class="col-md-3">
                                         <div class="product-image"><img class="img-fluid d-block mx-auto image" src="assets/img/tech/image2.jpg"></div>

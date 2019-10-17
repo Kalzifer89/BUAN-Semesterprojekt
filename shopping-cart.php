@@ -8,6 +8,9 @@
 // Version      : 1.0                        //
 ///////////////////////////////////////////////
 
+//Session Starten für Einkaufskorb
+session_start();
+
 include "core/header.php";
 
 if(isset($_COOKIE["LoggedIn"]))
