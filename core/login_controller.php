@@ -45,6 +45,7 @@ if (!isset($_COOKIE['LoggedIn'])) {
     $_SESSION['name'] = "";
     $_SESSION['captcha'] = "";
     anzeige();
+    captcha();
   }
 }
 
