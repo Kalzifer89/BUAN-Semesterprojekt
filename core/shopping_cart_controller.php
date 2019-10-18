@@ -71,6 +71,7 @@ if (isset($_POST['productID'])) {
                 <p>Hier sehen sie die Waren in ihrem Warenkorb.</p>
             </div>
             <div class="content">
+              <form class="" action="payment-page.php" method="post">
                 <div class="row no-gutters">
                     <div class="col-md-12 col-lg-8">
                         <div class="items">
@@ -90,10 +91,12 @@ echo "                                            <div><span>RAM: </span><span 
 echo "                                            <div><span>Memory: </span><span class=\"value\">32GB</span></div>\n";
 echo "                                        </div>\n";
 echo "                                    </div>\n";
-echo "                                    <div class=\"col-6 col-md-2 quantity\"><label class=\"d-none d-md-block\" for=\"quantity\">Anzahl</label><input type=\"number\" id=\"number\" class=\"form-control quantity-input\" value=\"".$product_ID['productAmount']."\"></div>\n";
+echo "                                    <div class=\"col-6 col-md-2 quantity\"><label class=\"d-none d-md-block\" for=\"quantity\">Anzahl:</label><input type=\"number\" id=\"number\" class=\"form-control quantity-input\" value=\"".$product_ID['productAmount']."\" name=\"productID".$product_ID['productID']."\"></div>\n";
 echo "                                    <div class=\"col-6 col-md-2 price\"><span>".$product_ID['productPrice']."€</span></div>\n";
 echo "                                </div>\n";
 echo "                            </div>";
+
+
 // Gesamtsumme Ausrechnen
 $gesamtpreis = $gesamtpreis + $product_ID['productPrice'] * $product_ID['productAmount'];
                             }
@@ -106,7 +109,8 @@ $gesamtpreis = $gesamtpreis + $product_ID['productPrice'] * $product_ID['product
                             <h4><span class="text">Zwischensumme</span><span class="price"><?php echo $gesamtpreis; ?>€</span></h4>
                             <h4><span class="text">Nachlass</span><span class="price">$0</span></h4>
                             <h4><span class="text">Versand</span><span class="price">$0</span></h4>
-                            <h4><span class="text">Total</span><span class="price"><?php echo $gesamtpreis; ?>€</span></h4><button class="btn btn-primary btn-block btn-lg" type="button">Bezahlen</button></div>
+                            <h4><span class="text">Total</span><span class="price"><?php echo $gesamtpreis; ?>€</span></h4>
+                            <button class="btn btn-primary btn-block btn-lg" type="submit">Bezahlen</button></div>
                     </div>
                 </div>
             </div>
