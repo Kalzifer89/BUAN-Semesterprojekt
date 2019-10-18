@@ -35,6 +35,7 @@
                     <!-- <li class="nav-item" role="presentation"><a class="nav-link" href="registration.php">Register</a></li> -->
                     <li class="nav-item" role="presentation"><a class="nav-link" href="catalog-page.php">Shop</a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="contact-us.php">Contact Us</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="shopping-cart.php" ><img src="assets/img/shoppingcart.png" width="20"></a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="#" onclick="SpracheDE()"><img src="assets/img/Download%20(2).png" width="20"></a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="#" onclick="SpracheEN()"><img src="assets/img/britishflag.jpg" width="20"></a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link switch" href="#" onclick="Darkmode()"><img src="assets/img/contrast-circle-512.png" width="20"></a></li>
