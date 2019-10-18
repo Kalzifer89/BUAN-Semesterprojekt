@@ -8,6 +8,7 @@
 // Version      : 1.0                        //
 ///////////////////////////////////////////////
 
+//Variable Initaltisieren
 $gesamtpreis = 0;
 
 // Nur Ausführen wenn ein Produkt hinzugefügt wurde
@@ -35,8 +36,10 @@ if (isset($_POST['productID'])) {
     //Schauen ob Produkt schon im Einkaufskorb liegt
     $shoppingcart = $_SESSION['shoppingcart'];
     $imWarenkorb = array_search($productID, array_column($_SESSION['shoppingcart'], 'productID'));
-    if (empty($imWarenkorb)) {
-     echo "im Warenkorb ist leer";
+    if ($imWarenkorb > -1) {
+     $shoppingcart = $_SESSION['shoppingcart'];
+     $shoppingcart[$imWarenkorb]['productAmount'] = $shoppingcart[$imWarenkorb]['productAmount'] + 1;
+     $_SESSION['shoppingcart'] = $shoppingcart;
     }
     else
     {
@@ -92,7 +95,7 @@ echo "                                    <div class=\"col-6 col-md-2 price\"><s
 echo "                                </div>\n";
 echo "                            </div>";
 // Gesamtsumme Ausrechnen
-$gesamtpreis = $gesamtpreis + $product_ID['productPrice'];
+$gesamtpreis = $gesamtpreis + $product_ID['productPrice'] * $product_ID['productAmount'];
                             }
                           ?>
                         </div>
