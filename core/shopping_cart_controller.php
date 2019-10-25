@@ -76,6 +76,7 @@ if (isset($_POST['productID'])) {
                     <div class="col-md-12 col-lg-8">
                         <div class="items">
                           <?php
+                          if (isset($_SESSION['shoppingcart'])) {
                           foreach ($_SESSION['shoppingcart'] as $product_ID)
                               {
 echo "  <div class=\"product\">";
@@ -100,6 +101,11 @@ echo "                            </div>";
 // Gesamtsumme Ausrechnen
 $gesamtpreis = $gesamtpreis + $product_ID['productPrice'] * $product_ID['productAmount'];
                             }
+                            // code...
+                          }
+                          else {
+                            echo "<h4>Der Warenkorb ist leer</h4>";
+                          }
                           ?>
                         </div>
                     </div>

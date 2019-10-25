@@ -19,7 +19,7 @@ $gesamtpreis = 0;
                 <h2 class="text-info">Bezahlung</h2>
                 <p>Bitte bezahlen sie ihre Produkte.</p>
             </div>
-            <form>
+            <form action="order_completed.php" method="post">
                 <div class="products">
                     <h3 class="title">Kasse</h3>
                     <?php
@@ -54,6 +54,7 @@ $gesamtpreis = 0;
                         </div>
                         <div class="col-sm-12">
                             <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Weiter</button></div>
+                            <input type="hidden" name="payed" value="1">
                         </div>
                     </div>
                 </div>
