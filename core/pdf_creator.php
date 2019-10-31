@@ -70,36 +70,22 @@ if ($Boni > 0) {
 }
 
 $html .= '
-<h2 style="text-align: center;">Gehaltsabrechnung'.$MonatName[$Monat].'</h2>
+<h2 style="text-align: center;">Gehaltsabrechnung '.$MonatName[$Monat].'</h2>
 
 <table cellpadding="5" cellspacing="0" style="width: 100%;" border="0">
 	<tr style="background-color: #cccccc; padding:5px;">
 		<td style="text-align: center;"><b>Datum</b></td>
 		<td style="text-align: center;"><b>Waren</b></td>
-		<td style="text-align: center;"><b>Wert</b></td>
+		<td><b>Wert</b></td>
 	</tr>';
 
-  if (mysqli_num_rows ($MonatsBestellungenArray) > 0)
-      {
-        echo "Schleife 1 läuft";
-
-      }
-
-      $html .='
-        <tr>
-            <td>'.$zeile['orderDate'].'</td>
-            <td>'.$ProduktNamen.'</td>
-            <td>'.$Gesamtpreis.'€</td>
-          </tr>';
-
-          $UmsatzMonat = $UmsatzMonat + $Gesamtpreis;
-          $Gesamtpreis = 0;
-          $ProduktNamen = "";
+$html .= $TabelleBestellungen;
 
 
       $html .='
       <tr>
         <td><b>Gesamt Umsatz:</b></td>
+        <td></td>
         <td><b>'.$UmsatzMonat.'€</b></td>
       </tr>';
 
@@ -116,10 +102,12 @@ $html .= '
   $html .='
       <tr>
         <td><b>Boni auf Umsatz:</b></td>
+        <td></td>
         <td><b>'.$Boni.'€</b></td>
       </tr>
       <tr>
         <td><b>Gesamtes Gehalt:</b></td>
+        <td></td>
         <td><u><b>'.$GehaltMonat.'€</b></u></td>
       </tr>
      </tbody>';
@@ -127,8 +115,6 @@ $html .= '
 $html .="</table><br><br><br>";
 
 $html .= nl2br($rechnungs_footer);
-
-print_r ($ItemArray);
 
 $_SESSION['html'] = $html;
 $_SESSION['pdfname'] = $pdfName;

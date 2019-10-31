@@ -11,11 +11,6 @@
 //Bei Klick auf Logout Buttion den Login Coockie Löschen
 if( isset($_POST['ausloggen']))
       {
-          setcookie("LoggedIn", "", time() -3600);
-          setcookie("UserName", "",time() -3600);
-          setcookie("UserID", "",time() -3600);
-          setcookie("isAdmin", "",time() -3600);
-          setcookie("UserMail", "",time() -3600);
           //Am Ende hier alle Coockies die erstellt wurden einmal killen
           session_destroy();
           echo "<meta http-equiv=\"refresh\" content=\"1; URL=index.php\">";
@@ -27,19 +22,19 @@ if (isset($_POST['name'])) {
   $Username = $_POST['name'];
   $Passwort = md5($_POST['passwort']);
   //Datenbank Abfrage nach Benutzername
-  $DatenbankAbfrageUser = "SELECT userName FROM users WHERE userName LIKE '$Username'";
+  $DatenbankAbfrageUser = "SELECT adminName FROM admins WHERE adminName LIKE '$Username'";
   $UserArray = mysqli_query ($db_link, $DatenbankAbfrageUser);
   //Datenbank Abfrage nach Passwort
-  $DatenbankAbfragePasswort = "SELECT UserPassword FROM users WHERE UserPassword LIKE '$Passwort';";
+  $DatenbankAbfragePasswort = "SELECT adminPassword FROM admins WHERE adminPassword LIKE '$Passwort';";
   $PasswortArray = mysqli_query ($db_link, $DatenbankAbfragePasswort);
   //Abfrage nach User ID //
-  $DatenbankAbfrageUserID = "SELECT userID,userMail FROM users WHERE userName LIKE '$Username'";
+  $DatenbankAbfrageUserID = "SELECT adminID FROM admins WHERE adminName LIKE '$Username'";
   $UserIDArray = mysqli_query ($db_link, $DatenbankAbfrageUserID);
 }
 
 // Den Captcha resetten bzw nicht resetten
 // Aufruf der CAPTCHA-Funktion -------------
-if (!isset($_COOKIE['LoggedIn'])) {
+if (!isset($_SESSION['LoggedInAdmin'])) {
   if(!isset($_POST['name']) && !isset($_POST['registername']) )
   {
     $_SESSION['name'] = "";
@@ -81,14 +76,13 @@ if(isset($_POST['Anmelden'])){
     else {
       $Fehlermeldung ="Sie sind erfolgreich eingelogt";
       //Eingelogt setzen
-      setcookie("LoggedIn", "True", 0);
+      $_SESSION['LoggedInAdmin'] = 1;
       //username setzen
-      setcookie("UserName", "$Username",0);
+      $_SESSION['UserNameadmin'] = $Username;
       //User ID an Coockie Übergeben
       while ($zeile2 = mysqli_fetch_array($UserIDArray))
                {
-                 setcookie("UserID", $zeile2['userID'], 0);
-                 setcookie("UserMail", $zeile2['userMail'], 0);
+                 $_SESSION['userIDAdmin'] = $zeile2['adminID'];
                }
       echo "<meta http-equiv=\"refresh\" content=\"1; URL=index.php\">";
     }
@@ -96,5 +90,4 @@ if(isset($_POST['Anmelden'])){
 // else {
 //   $Fehlermeldung = "Bitte loggen sie sich ein.";
 // }
-
- ?>
+?>

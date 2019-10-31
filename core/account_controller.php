@@ -16,6 +16,7 @@ $UmsatzMonat = 0;
 $Boni = 0;
 $GehaltMonat = 0;
 $ProduktNamen = "";
+$TabelleBestellungen = "";
 
 //Monat holen wenn nicht vorhanden auf 1 setzen
 if (isset($_POST['month'])) {
@@ -91,11 +92,13 @@ $MonatsBestellungenArray = mysqli_query ($db_link, $DatenbankAbfrageMonatsBestel
                                            //Sammeln der Produktnamen
                                            $ProduktNamen = $ProduktNamen.$zeile2['productNameDE'].", ";
                                          }
+
                                        echo "<tr>\n";
                                          echo "<td>".$zeile['orderDate']."</td>\n";
                                          echo "<td>".$ProduktNamen."</td>\n";
                                          echo "<td>".$Gesamtpreis."€</td>\n";
                                        echo "</tr>";
+
                                        $Umsatz = $Umsatz + $Gesamtpreis;
                                        $Gesamtpreis = 0;
                                        $ProduktNamen = "";
@@ -145,11 +148,22 @@ $MonatsBestellungenArray = mysqli_query ($db_link, $DatenbankAbfrageMonatsBestel
                                         $Gesamtpreis = $Gesamtpreis + $zeile2['productQuantity'] * $zeile2['productPrice'];
                                         $ProduktNamen = $ProduktNamen.$zeile2['productNameDE'].", ";
                                       }
+
+                                    //HTML Output Aufzeichnen
+                                    ob_start();
+
                                     echo "<tr>\n";
                                       echo "<td>".$zeile['orderDate']."</td>\n";
                                       echo "<td>".$ProduktNamen."</td>\n";
                                       echo "<td>".$Gesamtpreis."€</td>\n";
                                     echo "</tr>";
+
+                                    //Aufzeichnung in Variable Speichern
+                                    $TabelleBestellungen = $TabelleBestellungen.ob_get_contents();
+
+                                    //Aufzeichnung Beenden
+                                    ob_end_flush();
+
                                     $UmsatzMonat = $UmsatzMonat + $Gesamtpreis;
                                     $Gesamtpreis = 0;
                                     $ProduktNamen = "";
