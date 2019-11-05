@@ -7,12 +7,19 @@
 // Stand        : 31.10.19                   //
 // Version      : 1.0                        //
 ///////////////////////////////////////////////
+
+//Session Starten
+session_start();
+
 include '../config/config.php';
+//User ID Holen
 $userID = $_GET["userID"];
 
+//User aus Datenbank holen
 $DatenbankAbfrageUser = "SELECT * FROM users WHERE  userID = '$userID'";
 $UserArray = mysqli_query ($db_link, $DatenbankAbfrageUser);
 
+//Variablen Übergeben
 while ($zeile = mysqli_fetch_array($UserArray))
  {
    $userName = $zeile['userName'];
@@ -29,7 +36,39 @@ while ($zeile = mysqli_fetch_array($UserArray))
    $userCountry = $zeile['userCountry'];
  }
 
+ //Wenn Userdaten geändert worden sind
+ if (isset($_POST['edit'])) {
+
+   $registername = $_POST['registername'];
+   $registermail = $_POST['registermail'];
+   if (isset($_POST['registerpassword'])) {
+        $registerpassword = md5($_POST['registerpassword']);
+   }
+   $secretquestion = $_POST['secretquestion'];
+    if (isset($_POST['answer'])) {
+      $answer = $_POST['answer'];
+    }
+   $salution = $_POST['salution'];
+   $surname = $_POST['surname'];
+   $mainname = $_POST['mainname'];
+   $telephone = $_POST['telephone'];
+   $street = $_POST['street'];
+   $housenr = $_POST['housenr'];
+   $postcode = $_POST['postcode'];
+   $city= $_POST['city'];
+   $country= $_POST['country'];
+
+   $DatenbankUpdateUser = "UPDATE users SET userName = '$registername', userMail = '$registermail', userPassword = '$registerpassword', userSalution = '$salution', userSurname = '$surname', userMainname = '$mainname', userTelephone = '$telephone', userStreet = '$street', userHousenr = '$housenr', userPostcode = '$postcode', userCity = '$city' WHERE userID = '$userID'";
+   $UserArray = mysqli_query ($db_link, $DatenbankUpdateUser);
+ }
+
 include 'core/header.php';
+
+//Seite nur eingelogt Anzeigen
+if (!isset($_SESSION['LoggedInAdmin']))
+{
+  exit("Sie können diese Seite nicht einzelnd aufrufen.");
+}
  ?>
 
  <div class="container-fluid">
@@ -62,5 +101,6 @@ include 'core/header.php';
                </div>
            </div>
        </div>
+
 
 <?php include 'core/footer.php' ?>

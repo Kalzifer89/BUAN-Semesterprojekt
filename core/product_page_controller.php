@@ -40,7 +40,7 @@ while ($zeile = mysqli_fetch_array($ProdukctArray))
                      <div class="row">
                          <div class="col-md-6">
                              <div class="gallery">
-                                 <div class="sp-wrap"><a href="assets/img/tech/<?php echo $productImage;?>"><img class="img-fluid d-block mx-auto" src="assets/img/tech/<?php echo $productImage;?>"></a><a href="assets/img/tech/image1.jpg"><img class="img-fluid d-block mx-auto" src="assets/img/tech/image1.jpg"></a><a href="assets/img/tech/image1.jpg"><img class="img-fluid d-block mx-auto" src="assets/img/tech/image1.jpg"></a></div>
+                                 <div class="sp-wrap"><a href="assets/img/uploads/<?php echo $productImage;?>"><img class="img-fluid d-block mx-auto" src="assets/img/uploads/<?php echo $productImage;?>"></a><a href="assets/img/uploads/image1.jpg"><img class="img-fluid d-block mx-auto" src="assets/img/uploads/image1.jpg"></a><a href="assets/img/uploads/image1.jpg"><img class="img-fluid d-block mx-auto" src="assets/img/tech/image1.jpg"></a></div>
                              </div>
                          </div>
                          <div class="col-md-6">

@@ -83,7 +83,7 @@ $ProdukctArray = mysqli_query ($db_link, $DatenbankAbfrageProdukte);
                                    {
  echo "                                 <div class=\"col-12 col-md-6 col-lg-4\">\n";
  echo "                                     <div class=\"clean-product-item\">\n";
- echo "                                         <div class=\"image\"><a href=\"product-page.php?produktID=".$zeile['productID']."\"><img class=\"img-fluid d-block mx-auto\" src=\"assets/img/tech/".$zeile['productImage']."\"></a></div>\n";
+ echo "                                         <div class=\"image\"><a href=\"product-page.php?produktID=".$zeile['productID']."\"><img class=\"img-fluid d-block mx-auto\" src=\"assets/img/uploads/".$zeile['productImage']."\"></a></div>\n";
  echo "                                         <div class=\"product-name\"><a href=\"product-page.php?produktID=".$zeile['productID']."\">".$zeile['productNameDE']."</a></div>\n";
  echo "                                         <div class=\"about\">\n";
  echo "                                             <div class=\"rating\"><img src=\"assets/img/star.svg\"><img src=\"assets/img/star.svg\"><img src=\"assets/img/star.svg\"><img src=\"assets/img/star-half-empty.svg\"><img src=\"assets/img/star-empty.svg\"></div>\n";
