@@ -16,35 +16,27 @@ include '../config/config.php';
 $userID = $_GET["userID"];
 
 //User aus Datenbank holen
-$DatenbankAbfrageUser = "SELECT * FROM admins WHERE adminID = '$userID'";
+$DatenbankAbfrageUser = "SELECT * FROM categorys WHERE categoryID = '$userID'";
 $UserArray = mysqli_query ($db_link, $DatenbankAbfrageUser);
 
 //Variablen Übergeben
 while ($zeile = mysqli_fetch_array($UserArray))
  {
-   $adminName = $zeile['adminName'];
-   $adminPassword = $zeile['adminPassword'];
-   $adminLocked = $zeile['locked'];
+   $categoryNameDE = $zeile['categoryNameDE'];
+   $categoryNameENG = $zeile['categoryNameENG'];
+   $locked = $zeile['locked'];
  }
 
  //Wenn Userdaten geändert worden sind
  if (isset($_POST['edit'])) {
+   $categoryNameDE = $_POST['categoryNameDE'];
+   $categoryNameENG = $_POST['categoryNameENG'];
+   $locked = $_POST['locked'];
 
-   $adminName = $_POST['adminName'];
-   $adminPassword = $_POST['adminPassword'];
-   $adminLocked = $_POST['locked'];
+   $DatenbankUpdateUser = "UPDATE categorys SET categoryNameDE = '$categoryNameDE', categoryNameENG = '$categoryNameENG', locked = '$locked' WHERE categoryID = '$userID'";
+   $UserArray = mysqli_query ($db_link, $DatenbankUpdateUser);
 
-//Check ob Admin sich selbst locken möchte
-   if ($_SESSION['userIDAdmin'] == $userID && $adminLocked == 1) {
-     $UserFehlermeldung = "Sie können sich nicht selbst Blockieren.";
-   } else {
-     $DatenbankUpdateUser = "UPDATE admins SET adminName = '$adminName', adminPassword = '$adminPassword', locked = '$adminLocked' WHERE adminID = '$userID'";
-     $UserArray = mysqli_query ($db_link, $DatenbankUpdateUser);
-
-     $UserFehlermeldung = "Sie haben die Daten erfolgreich geändert.";
-   }
-
-
+   $UserFehlermeldung = "Sie haben die Daten erfolgreich geändert.";
  }
 
 include 'core/header.php';
@@ -57,7 +49,7 @@ if (!isset($_SESSION['LoggedInAdmin']))
  ?>
 
  <div class="container-fluid">
-    <h3 class="text-dark mb-4">Admin Verwaltung</h3>
+    <h3 class="text-dark mb-4">Kategorie Verwaltung</h3>
     <?php if (isset($UserFehlermeldung))
     {
       echo "<script type=\"text/javascript\">\n";
@@ -66,13 +58,12 @@ if (!isset($_SESSION['LoggedInAdmin']))
     } ?>
     <div class="card shadow">
         <div class="card-header py-3">
-            <p class="text-primary m-0 font-weight-bold">Admin Bearbeiten</p>
+            <p class="text-primary m-0 font-weight-bold">Kategorie Bearbeiten</p>
         </div>
         <div class="card-body">
              <form method="post" target="_self">
-                 <h4>Zugangsdaten</h4>
-                 <div class="form-group"><label for="email">Benutzername:</label><input class="form-control item" type="text" id="email" name="adminName" value="<?php echo $adminName ?>"></div>
-                 <div class="form-group"><label for="password">Passwort:</label><input class="form-control item" type="password" id="password" name="adminPassword" ></div>
+                 <div class="form-group"><label for="email">Kategorie Name Deutsch:</label><input class="form-control item" type="text" id="email" name="categoryNameDE" value="<?php echo $categoryNameDE ?>"></div>
+                 <div class="form-group"><label for="password">Kategorie Name Englisch</label><input class="form-control item" type="text" id="password" name="categoryNameENG" value="<?php echo $categoryNameENG ?>"></div>
                  <div class="form-group"><label>Locked:</label></br><select name="locked"><optgroup label="Lock Status">
                    <?php
                    if ($locked == 1) {

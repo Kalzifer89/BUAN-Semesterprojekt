@@ -26,6 +26,8 @@
                      <li class="nav-item" role="presentation"><a class="nav-link" href="create_product.php"><i class="far fa-window-maximize"></i><span>Produkt erstellen</span></a></li>
                      <li class="nav-item" role="presentation"><a class="nav-link" href="admin_management.php"><i class="fas fa-key"></i><span>Admin Mangement</span></a></li>
                      <li class="nav-item" role="presentation"><a class="nav-link" href="create_admin.php"><i class="fas fa-key"></i><span>Admin Anlegen</span></a></li>
+                     <li class="nav-item" role="presentation"><a class="nav-link" href="category_management.php"><i class="far fa-window-maximize"></i><span>Kategorie Verwaltung</span></a></li>
+                     <li class="nav-item" role="presentation"><a class="nav-link" href="create_category.php"><i class="far fa-window-maximize"></i><span>Kategorie Anlegen</span></a></li>
                      <li class="nav-item" role="presentation"><a class="nav-link" href="login.php"><i class="fas fa-user"></i><span>Login</span></a></li>
                  </ul>
                  <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0" id="sidebarToggle" type="button"></button></div>
