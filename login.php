@@ -8,6 +8,7 @@
 // Version      : 1.0                        //
 ///////////////////////////////////////////////
 
+include './language/login_lang.php';
 //Einbinden vom Captcha Skriot
 include "core/captcha.php";
 //Einbinden vom Header Skript
@@ -25,11 +26,11 @@ anzeige(); captcha();
                   echo "            <div class=\"container\">";
                                   echo "<div class=\"block-heading\">\n";
                                   echo "    <h2 class=\"text-info\">Log In</h2>\n";
-                                  echo "    <p>Sie sind bereit erfolgreich eingelogt.</p>\n";
+                                  echo "    <p>".$loginlang[$_COOKIE['language']][11]."</p>\n";
                                   echo "</div>";
                                   echo "<form action=\"login.php\" method=\"post\">\n";
                                   echo "  <input type=\"hidden\" name=\"ausloggen\" value=\"1\">\n";
-                                  echo "<div class=\"form-group\"><label for=\"name\">Wollen sie sich wieder ausloggen?</label>";
+                                  echo "<div class=\"form-group\"><label for=\"name\">".$loginlang[$_COOKIE['language']][12]."</label>";
                                   echo "  <button class=\"btn btn-primary btn-block\" type=\"submit\">Log out</button>\n";
                                   echo "</form>";
                   echo "          </div>\n";

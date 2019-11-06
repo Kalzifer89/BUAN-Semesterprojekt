@@ -8,6 +8,9 @@
 // Version      : 1.0                        //
 ///////////////////////////////////////////////
 
+//Language Datei einbinden
+include './language/shop_lang.php';
+
 //Kategorien Abfragen
 $DatenbankAbfrageCategorys= "SELECT * FROM categorys";
 $CategoryArray = mysqli_query ($db_link, $DatenbankAbfrageCategorys);
@@ -46,7 +49,7 @@ else {
          <div class="container">
              <div class="block-heading">
                  <h2 class="text-info">SHOP</h2>
-                 <p>Hier sehen sie welche Artikel sie kaufen können.</p>
+                 <p><?php echo $shoplang [$_COOKIE['language']][1]; ?></p>
              </div>
              <div class="content">
                  <div class="row">
@@ -55,7 +58,7 @@ else {
                            <form method="post" target="_self" class="blankform">
                              <div class="filters">
                                  <div class="filter-item">
-                                     <h3>Kategorien</h3>
+                                     <h3><?php echo $shoplang[$_COOKIE['language']][2]; ?></h3>
                                      <?php
                                      while ($zeile = mysqli_fetch_array($CategoryArray))
                                          {
@@ -64,14 +67,14 @@ else {
                                       ?>
                                  </div>
                                  <div class="filter-item">
-                                     <h3>Preis</h3>
+                                     <h3><?php echo $shoplang [$_COOKIE['language']][3]; ?></h3>
                                      <div class="form-check"><input class="form-check-input" type="radio" name="price" value ="50"  id="formCheck-5"><label class="form-check-label" for="formCheck-5">50</label></div>
                                      <div class="form-check"><input class="form-check-input" type="radio" name="price" value ="100" id="formCheck-6"><label class="form-check-label" for="formCheck-6">100</label></div>
                                      <div class="form-check"><input class="form-check-input" type="radio" name="price" value ="150" id="formCheck-7"><label class="form-check-label" for="formCheck-7">150</label></div>
                                      <div class="form-check"><input class="form-check-input" type="radio" name="price" value ="200" id="formCheck-7"><label class="form-check-label" for="formCheck-7">200</label></div>
                                  </div>
                                  <input type="hidden" name="filter" value="1">
-                                 <button type="submit" name="Filter">Filtern</button>
+                                 <button type="submit" name="Filter"><?php echo $shoplang [$_COOKIE['language']][4]; ?></button>
                                </form>
                              </div>
                          </div>
@@ -85,7 +88,12 @@ else {
  echo "                                 <div class=\"col-12 col-md-6 col-lg-4\">\n";
  echo "                                     <div class=\"clean-product-item\">\n";
  echo "                                         <div class=\"image\"><a href=\"product-page.php?produktID=".$zeile['productID']."\"><img class=\"img-fluid d-block mx-auto\" src=\"assets/img/uploads/".$zeile['productImage']."\"></a></div>\n";
- echo "                                         <div class=\"product-name\"><a href=\"product-page.php?produktID=".$zeile['productID']."\">".$zeile['productNameDE']."</a></div>\n";
+if ($_COOKIE['language'] == 0) {
+  echo "                                         <div class=\"product-name\"><a href=\"product-page.php?produktID=".$zeile['productID']."\">".$zeile['productNameDE']."</a></div>\n";
+}else {
+  echo "                                         <div class=\"product-name\"><a href=\"product-page.php?produktID=".$zeile['productID']."\">".$zeile['productNameENG']."</a></div>\n";
+
+}
  echo "                                         <div class=\"about\">\n";
  echo "                                             <div class=\"price\">\n";
  echo "                                                 <h3>".$zeile['productPrice']."€</h3>\n";

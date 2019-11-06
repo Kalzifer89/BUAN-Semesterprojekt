@@ -7,6 +7,8 @@
 // Stand        : 25.10.19                   //
 // Version      : 1.0                        //
 ///////////////////////////////////////////////
+
+include './language/order_lang.php';
  ?>
 
 <!-- Header einbinden -->
@@ -20,11 +22,11 @@
     <section class="clean-block clean-form dark">
         <div class="container">
           <div class="block-heading">
-              <h2 class="text-info">Einkauf erfolgreich</h2>
-              <p>Ihr Einkauf wurde erfolgreich bestätigt, sie erhalten die Ware in kürze.</p>
+              <h2 class="text-info"><?php echo $orderlang[$_COOKIE['language']][1]; ?></h2>
+              <p><?php echo $orderlang[$_COOKIE['language']][2]; ?></p>
           </div>
           <form action="catalog-page.php" method="post">
-              <button class="btn btn-primary btn-block" type="submit">Zurück zum Shop</button>
+              <button class="btn btn-primary btn-block" type="submit"><?php echo $orderlang[$_COOKIE['language']][3]; ?></button>
             </form>
           </div>
       </section>

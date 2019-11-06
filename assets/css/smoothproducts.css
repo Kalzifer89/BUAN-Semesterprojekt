@@ -418,3 +418,7 @@ html, body {
 .flag {
   /*margin-left: 10px;*/
 }
+
+.clean-product-item .image img {
+  min-height: 180px !important;
+}

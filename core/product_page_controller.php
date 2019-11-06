@@ -8,6 +8,9 @@
 // Version      : 1.0                        //
 ///////////////////////////////////////////////
 
+//Sprachswitch einbinden
+include './language/product_lang.php';
+
 //Variable aus URL Erstellen
 $productID = $_GET["produktID"];
 //Produkte Abfragen
@@ -32,8 +35,8 @@ while ($zeile = mysqli_fetch_array($ProdukctArray))
      <section class="clean-block clean-product dark">
          <div class="container">
              <div class="block-heading">
-                 <h2 class="text-info">Produkt Seite</h2>
-                 <p>Hier erfahren sie mehr über ihr ausgewählter Produkt.</p>
+                 <h2 class="text-info"><?php echo $productlang[$_COOKIE['language']][1]; ?></h2>
+                 <p><?php echo $productlang[$_COOKIE['language']][2]; ?></p>
              </div>
              <div class="block-content">
                  <div class="product-info">
@@ -45,16 +48,16 @@ while ($zeile = mysqli_fetch_array($ProdukctArray))
                          </div>
                          <div class="col-md-6">
                              <div class="info">
-                                 <h3><?php echo $productNameDE;?></h3>
+                                 <h3><?php if ($_COOKIE['language'] == 0) {echo $productNameDE;}else {echo $productNameENG;}?></h3>
                                  <div class="price">
                                      <h3><?php echo $productPrice;?>€</h3>
                                  </div>
                                  <form class="shoppingcart" action="shopping-cart.php" method="post">
                                    <input type="hidden" name="productID" value="<?php echo $productID;?>">
-                                   <button class="btn btn-primary" type="submit"><i class="icon-basket"></i>Zum Einkaufswagen</button>
+                                   <button class="btn btn-primary" type="submit"><i class="icon-basket"></i><?php echo $productlang[$_COOKIE['language']][3]; ?></button>
                                  </form>
                                  <div class="summary">
-                                     <p><?php echo $productDescriptionDE;?></p>
+                                     <p><?php if ($_COOKIE['language'] == 0) {echo $productDescriptionDE;}else {echo $productDescriptionENG;}?></p>
                                  </div>
                              </div>
                          </div>

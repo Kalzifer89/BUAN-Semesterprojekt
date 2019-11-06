@@ -60,26 +60,26 @@ if(isset($_POST['Anmelden'])){
     }
     //Überprüfung ob Name Ausgefüllt ist
     elseif (empty ($_POST['name'])) {
-      $Fehlermeldung ="Namen fehlt";
+      $Fehlermeldung ="Namen fehlt / Name not Found";
     }
     //ÜBerprüfung ob Passwort ausgefüllt ist
     elseif (empty ($_POST['passwort'])) {
-      $Fehlermeldung ="Passwort fehlt";
+      $Fehlermeldung ="Passwort fehlt / Password wrong";
     }
     elseif (mysqli_num_rows ($UserArray) == 0) {
-      $Fehlermeldung ="Benutzername nicht in Datenbank";
+      $Fehlermeldung ="Benutzername nicht in Datenbank / Username not in Database";
     }
     elseif (mysqli_num_rows ($PasswortArray) == 0) {
-      $Fehlermeldung ="Passwort nicht in Datenbank";
+      $Fehlermeldung ="Passwort nicht in Datenbank / Password not in Database";
     }
     elseif (empty($_POST['captcha'])) {
-      $Fehlermeldung ="Das Ergebnis muss eingeben werden";
+      $Fehlermeldung ="Das Ergebnis muss eingeben werden / The Result must be Entered.";
     }
     elseif($_POST['captcha'] !=$_SESSION['ergebnis']) {
-      $Fehlermeldung ="Ergebnis ist Falsch";
+      $Fehlermeldung ="Ergebnis ist Falsch / The Result is wrong";
       }
     else {
-      $Fehlermeldung ="Sie sind erfolgreich eingelogt";
+      $Fehlermeldung ="Sie sind erfolgreich eingelogt / You are sucessfully logged in";
       //Eingelogt setzen
       setcookie("LoggedIn", "True", 0);
       //username setzen

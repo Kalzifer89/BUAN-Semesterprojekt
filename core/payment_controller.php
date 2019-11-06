@@ -8,6 +8,9 @@
 // Version      : 1.0                        //
 ///////////////////////////////////////////////
 
+//Sprachswitch einbinden
+include './language/payment_lang.php';
+
 //Variable Initaltisieren
 $gesamtpreis = 0;
 $Counter = 0;
@@ -34,12 +37,12 @@ foreach ($_SESSION['shoppingcart'] as $product_ID)
     <section class="clean-block payment-form dark">
         <div class="container">
             <div class="block-heading">
-                <h2 class="text-info">Bezahlung</h2>
-                <p>Bitte bezahlen sie ihre Produkte.</p>
+                <h2 class="text-info"><?php echo $paymentlang[$_COOKIE['language']][1]; ?></h2>
+                <p><?php echo $paymentlang[$_COOKIE['language']][2]; ?></p>
             </div>
             <form action="order_completed.php" method="post">
                 <div class="products">
-                    <h3 class="title">Kasse</h3>
+                    <h3 class="title"><?php echo $paymentlang[$_COOKIE['language']][3]; ?></h3>
                     <?php
                     foreach ($_SESSION['shoppingcart'] as $product_ID)
                     {
@@ -54,7 +57,7 @@ foreach ($_SESSION['shoppingcart'] as $product_ID)
                     <div class="total"><span>Total</span><span class="price"><?php echo $gesamtpreis; ?>€</span></div>
                 </div>
                 <div class="card-details">
-                    <h3 class="title">Kredit Karten Details</h3>
+                    <h3 class="title"><?php echo $paymentlang[$_COOKIE['language']][4]; ?></h3>
                     <div class="form-row">
                         <div class="col-sm-7">
                             <div class="form-group"><label for="card-holder">Card Holder</label><input class="form-control" type="text" placeholder="Card Holder" value="Staatskasse"></div>
@@ -71,7 +74,7 @@ foreach ($_SESSION['shoppingcart'] as $product_ID)
                             <div class="form-group"><label for="cvc">CVC</label><input class="form-control" type="text" id="cvc" placeholder="CVC" value="666"></div>
                         </div>
                         <div class="col-sm-12">
-                            <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Weiter</button></div>
+                            <div class="form-group"><button class="btn btn-primary btn-block" type="submit"><?php echo $paymentlang[$_COOKIE['language']][5]; ?></button></div>
                             <input type="hidden" name="payed" value="1">
                         </div>
                     </div>

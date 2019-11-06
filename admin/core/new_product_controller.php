@@ -34,18 +34,26 @@ $productPrice = "";
    $productPrice = $_POST['productPrice'];
    $productImage = $_FILES['productImage']['name'];
 
-   move_uploaded_file($_FILES['productImage']['tmp_name'], '../assets/img/'.$_FILES['productImage']['name']);
+   move_uploaded_file($_FILES['productImage']['tmp_name'], '../assets/img/uploads/'.$_FILES['productImage']['name']);
 
-   $DatenbankUpdateProducts = "INSERT INTO products (productNameDE, productNameENG, productDescriptionDE, productImage, productCategoryID, productPrice ) VALUES ('$productNameDE', '$productNameENG', '$productDescriptionDE', '$productImage', '$productCategoryID', '$productPrice')";
+   $DatenbankUpdateProducts = "INSERT INTO products (productNameDE, productNameENG, productDescriptionDE, productDescriptionENG, productImage, productCategoryID, productPrice ) VALUES ('$productNameDE', '$productNameENG', '$productDescriptionDE', '$productDescriptionENG', '$productImage', '$productCategoryID', '$productPrice')";
    $ProductsArray = mysqli_query ($db_link, $DatenbankUpdateProducts);
+
+   $UserFehlermeldung = "Daten erfolgreich Eingetragen";
  }
  ?>
 
  <div class="container-fluid">
-    <h3 class="text-dark mb-4">Product Mangement</h3>
+    <h3 class="text-dark mb-4">Produkt Verwaltung</h3>
+    <?php if (isset($UserFehlermeldung))
+    {
+      echo "<script type=\"text/javascript\">\n";
+      echo "alert(\"$UserFehlermeldung\");\n";
+      echo "</script>";
+    } ?>
     <div class="card shadow">
         <div class="card-header py-3">
-            <p class="text-primary m-0 font-weight-bold">New Product</p>
+            <p class="text-primary m-0 font-weight-bold">Neues Produkt</p>
         </div>
         <div class="card-body">
           <form method="post" target="_self" enctype="multipart/form-data">
@@ -69,7 +77,7 @@ $productPrice = "";
                  ?>
               </optgroup></select></div>
               <input type="hidden" name="edit" value="1">
-              <button class="btn btn-primary btn-block" type="submit">Ändern</button></form>
+              <button class="btn btn-primary btn-block" type="submit">Erstellen</button></form>
           </form>
                </div>
            </div>

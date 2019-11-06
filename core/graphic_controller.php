@@ -50,15 +50,15 @@ if ($Boni > 0) {
   //Ausgeben
   imagepng($bild, "./assets/img/statistikkreis.png");
 
-  echo "<h3>Grafische Aufbereitung</h3>\n";
+  echo "<h3>".$accountlang[$_COOKIE['language']][17]."</h3>\n";
   echo "<div id=\"flex\">\n";
   echo "  <img src=\"./assets/img/statistikkreis.png\">\n";
   echo "</div>";
 
 }
 else {
-  echo "<h3>Grafische Aufbereitung</h3>\n";
-  echo "Leider keine Boni in diesem Monat.";
+  echo "<h3>".$accountlang[$_COOKIE['language']][17]."</h3>\n";
+  echo $accountlang[$_COOKIE['language']][18];
 
 }
 

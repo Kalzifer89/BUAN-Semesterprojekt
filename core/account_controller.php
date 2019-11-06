@@ -8,6 +8,8 @@
 // Version      : 1.0                        //
 ///////////////////////////////////////////////
 
+include './language/account_lang.php';
+
 //Variabeln bereitstellen
 $userID = $_COOKIE['UserID'];
 $Gesamtpreis = 0;
@@ -59,18 +61,18 @@ $MonatsBestellungenArray = mysqli_query ($db_link, $DatenbankAbfrageMonatsBestel
      <section class="clean-block clean-faq dark">
          <div class="container">
              <div class="block-heading">
-                 <h2 class="text-info">Account Management</h2>
-                 <p>Hier können sie ihren Account Managen.</p>
+                 <h2 class="text-info"><?php echo $accountlang[$_COOKIE['language']][1]; ?></h2>
+                 <p><?php echo $accountlang[$_COOKIE['language']][2]; ?></p>
              </div>
              <div class="block-content">
-                     <h3>Bestellungen</h3>
+                     <h3><?php echo $accountlang[$_COOKIE['language']][3]; ?></h3>
                      <div class="table-responsive">
                          <table class="table">
                              <thead>
                                  <tr>
-                                     <th>Datum</th>
-                                     <th>Waren</th>
-                                     <th>Wert</th>
+                                     <th><?php echo $accountlang[$_COOKIE['language']][4]; ?></th>
+                                     <th><?php echo $accountlang[$_COOKIE['language']][5]; ?></th>
+                                     <th><?php echo $accountlang[$_COOKIE['language']][6]; ?></th>
                                  </tr>
                              </thead>
                              <tbody>
@@ -106,29 +108,29 @@ $MonatsBestellungenArray = mysqli_query ($db_link, $DatenbankAbfrageMonatsBestel
                                    }
                                 ?>
                                 <tr>
-                                  <td><b>Gesamt Umsatz:</b></td>
+                                  <td><b><?php echo $accountlang[$_COOKIE['language']][7]; ?></b></td>
                                   <td> </td>
                                   <td><b><?php echo $Umsatz; ?>€</b></td>
                                 </tr>
                              </tbody>
                          </table>
                      </div>
-                    <h3>Gehaltsabrechnung</h3>
+                    <h3><?php echo $accountlang[$_COOKIE['language']][8]; ?></h3>
                     <form method="post" action="account.php">
-                        <div class="form-group"><label>Wahl des Monates:</label><select class="form-control" name="month"><optgroup label="Monatsauswahl"><option value="1" selected>Januar</option><option value="2">Feburar</option><option value="3">März</option><option value="4">April</option><option value="5">Mai</option><option value="6">Juni</option><option value="7">Julie</option><option value="8">August</option><option value="9">September</option><option value="10">Oktober</option><option value="11">November</option><option value="12">Dezember</option></optgroup></select></div>
-                        <div class="form-group"><label>Wahl des Jahres:</label><select class="form-control"name="year"><optgroup label="Jahreswahl"><option value="2020" >2020</option><option value="2019" selected>2019</option><option value="2018">2018</option></optgroup></select></div>
+                        <div class="form-group"><label><?php echo $accountlang[$_COOKIE['language']][9]; ?></label><select class="form-control" name="month"><optgroup label="Monatsauswahl"><option value="1" selected>Januar</option><option value="2">Feburar</option><option value="3">März</option><option value="4">April</option><option value="5">Mai</option><option value="6">Juni</option><option value="7">Julie</option><option value="8">August</option><option value="9">September</option><option value="10">Oktober</option><option value="11">November</option><option value="12">Dezember</option></optgroup></select></div>
+                        <div class="form-group"><label><?php echo $accountlang[$_COOKIE['language']][10]; ?></label><select class="form-control"name="year"><optgroup label="Jahreswahl"><option value="2020" >2020</option><option value="2019" selected>2019</option><option value="2018">2018</option></optgroup></select></div>
                         <div class="form-group">
                             <div class="form-check"><input type="checkbox" class="form-check-input" id="formCheck-1" name="PDFExport" value="1" /><label class="form-check-label" for="formCheck-1">PDF Export</label></div>
                         </div>
-                    <div class="form-group"><button class="btn btn-primary btn-block" type="submit">Berechnen</button></div>
+                    <div class="form-group"><button class="btn btn-primary btn-block" type="submit"><?php echo $accountlang[$_COOKIE['language']][11]; ?></button></div>
                     </form>
                     <div class="table-responsive">
                         <table class="table">
                             <thead>
                                 <tr>
                                     <th><?php echo $MonatName[$Monat]; echo" - "; echo $Year?></th>
-                                    <th>Waren</th>
-                                    <th>Wert</th>
+                                    <th><?php echo $accountlang[$_COOKIE['language']][12]; ?></th>
+                                    <th><?php echo $accountlang[$_COOKIE['language']][13]; ?></th>
                                 </tr>
                             </thead>
                             <?php
@@ -171,7 +173,7 @@ $MonatsBestellungenArray = mysqli_query ($db_link, $DatenbankAbfrageMonatsBestel
                                 }
                              ?>
                              <tr>
-                               <td><b>Gesamt Umsatz:</b></td>
+                               <td><b><?php echo $accountlang[$_COOKIE['language']][14]; ?></b></td>
                                <td></td>
                                <td><b><?php echo $UmsatzMonat; ?>€</b></td>
                              </tr>
@@ -187,12 +189,12 @@ $MonatsBestellungenArray = mysqli_query ($db_link, $DatenbankAbfrageMonatsBestel
                                     $GehaltMonat = $UmsatzMonat + $Boni;
                                ?>
                              <tr>
-                               <td><b>Boni auf Umsatz:</b></td>
+                               <td><b><?php echo $accountlang[$_COOKIE['language']][15]; ?></b></td>
                                <td></td>
                                <td><b><?php echo $Boni; ?>€</b></td>
                              </tr>
                              <tr>
-                               <td><b>Gesamtes Gehalt:</b></td>
+                               <td><b><?php echo $accountlang[$_COOKIE['language']][16]; ?></b></td>
                                <td></td>
                                <td><u><b><?php echo $GehaltMonat; ?>€</b></u></td>
                              </tr>

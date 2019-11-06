@@ -8,6 +8,8 @@
 // Version      : 1.0                        //
 ///////////////////////////////////////////////
 
+//Language Array Includieren
+include './language/shoppingcart_lang.php';
 //Variable Initaltisieren
 $gesamtpreis = 0;
 
@@ -67,8 +69,8 @@ if (isset($_POST['productID'])) {
     <section class="clean-block clean-cart dark">
         <div class="container">
             <div class="block-heading">
-                <h2 class="text-info">Warenkorb</h2>
-                <p>Hier sehen sie die Waren in ihrem Warenkorb.</p>
+                <h2 class="text-info"><?php echo $shoppingcartlang[$_COOKIE['language']][1]; ?></h2>
+                <p><?php echo $shoppingcartlang[$_COOKIE['language']][2]; ?></p>
             </div>
             <div class="content">
               <form class="" action="payment-page.php" method="post">
@@ -87,9 +89,7 @@ echo "                                        <div class=\"product-image\"><img 
 echo "                                    </div>\n";
 echo "                                    <div class=\"col-md-5 product-info\"><a class=\"product-name\" href=\"product-page.php?produktID=".$product_ID['productID']."\">".$product_ID['productNameDE']."</a>\n";
 echo "                                        <div class=\"product-specs\">\n";
-echo "                                            <div><span>Display: </span><span class=\"value\">5 inch</span></div>\n";
-echo "                                            <div><span>RAM: </span><span class=\"value\">4GB</span></div>\n";
-echo "                                            <div><span>Memory: </span><span class=\"value\">32GB</span></div>\n";
+echo "                                            <div>".$shoppingcartlang[$_COOKIE['language']][9]."</div>\n";
 echo "                                        </div>\n";
 echo "                                    </div>\n";
 echo "                                    <div class=\"col-6 col-md-2 quantity\"><label class=\"d-none d-md-block\" for=\"quantity\">Anzahl:</label><input type=\"number\" name=\"price_".$product_ID['productID']."\" id=\"number\" class=\"form-control quantity-input\" value=\"".$product_ID['productAmount']."\" name=\"productID".$product_ID['productID']."\"></div>\n";
@@ -111,12 +111,12 @@ $gesamtpreis = $gesamtpreis + $product_ID['productPrice'] * $product_ID['product
                     </div>
                     <div class="col-md-12 col-lg-4">
                         <div class="summary">
-                            <h3>Gesamt:</h3>
-                            <h4><span class="text">Zwischensumme</span><span class="price"><?php echo $gesamtpreis; ?>€</span></h4>
-                            <h4><span class="text">Nachlass</span><span class="price">0€</span></h4>
-                            <h4><span class="text">Versand</span><span class="price">0€</span></h4>
-                            <h4><span class="text">Total</span><span class="price"><?php echo $gesamtpreis; ?>€</span></h4>
-                            <button class="btn btn-primary btn-block btn-lg" type="submit">Bezahlen</button></div>
+                            <h3><?php echo $shoppingcartlang[$_COOKIE['language']][3]; ?>:</h3>
+                            <h4><span class="text"><?php echo $shoppingcartlang[$_COOKIE['language']][4]; ?></span><span class="price"><?php echo $gesamtpreis; ?>€</span></h4>
+                            <h4><span class="text"><?php echo $shoppingcartlang[$_COOKIE['language']][5]; ?></span><span class="price">0€</span></h4>
+                            <h4><span class="text"><?php echo $shoppingcartlang[$_COOKIE['language']][6]; ?></span><span class="price">0€</span></h4>
+                            <h4><span class="text"><?php echo $shoppingcartlang[$_COOKIE['language']][7]; ?></span><span class="price"><?php echo $gesamtpreis; ?>€</span></h4>
+                            <button class="btn btn-primary btn-block btn-lg" type="submit"><?php echo $shoppingcartlang[$_COOKIE['language']][8]; ?></button></div>
                     </div>
                 </div>
               </form>
