@@ -19,15 +19,14 @@
                  </a>
                  <hr class="sidebar-divider my-0">
                  <ul class="nav navbar-nav text-light" id="accordionSidebar">
-                     <li class="nav-item" role="presentation"><a class="nav-link active" href="index.html"><i class="fas fa-tachometer-alt"></i><span>Statistik</span></a></li>
+                     <li class="nav-item" role="presentation"><a class="nav-link active" href="index.php"><i class="fas fa-tachometer-alt"></i><span>Statistik</span></a></li>
                      <li class="nav-item" role="presentation"><a class="nav-link" href="user_mangement.php"><i class="fas fa-user"></i><span>User Mangement</span></a></li>
-                     <li class="nav-item" role="presentation"><a class="nav-link" href="product_mangement.php"><i class="fas fa-table"></i><span>Produkte</span></a></li>
+                     <li class="nav-item" role="presentation"><a class="nav-link" href="../registration.php"><i class="fas fa-user"></i><span>User Anlegen</span></a></li>
+                     <li class="nav-item" role="presentation"><a class="nav-link" href="product_mangement.php"><i class="far fa-window-maximize"></i><span>Produkte</span></a></li>
                      <li class="nav-item" role="presentation"><a class="nav-link" href="create_product.php"><i class="far fa-window-maximize"></i><span>Produkt erstellen</span></a></li>
-                     <li class="nav-item" role="presentation"><a class="nav-link" href="register.html"><i class="fas fa-user-circle"></i><span>User Anlegen</span></a></li>
-                     <li class="nav-item" role="presentation"><a class="nav-link" href="forgot-password.html"><i class="fas fa-key"></i><span>Forgotten Password</span></a></li>
-                     <li class="nav-item" role="presentation"><a class="nav-link" href="404.html"><i class="fas fa-exclamation-circle"></i><span>Page Not Found</span></a></li>
-                     <li class="nav-item" role="presentation"><a class="nav-link" href="blank.html"><i class="fas fa-window-maximize"></i><span>Blank Page</span></a></li>
-                     <li class="nav-item" role="presentation"><a class="nav-link" href="table-1.html"><i class="fas fa-table"></i><span>Table</span></a></li>
+                     <li class="nav-item" role="presentation"><a class="nav-link" href="admin_management.php"><i class="fas fa-key"></i><span>Admin Mangement</span></a></li>
+                     <li class="nav-item" role="presentation"><a class="nav-link" href="create_admin.php"><i class="fas fa-key"></i><span>Admin Anlegen</span></a></li>
+                     <li class="nav-item" role="presentation"><a class="nav-link" href="login.php"><i class="fas fa-user"></i><span>Login</span></a></li>
                  </ul>
                  <div class="text-center d-none d-md-inline"><button class="btn rounded-circle border-0" id="sidebarToggle" type="button"></button></div>
              </div>

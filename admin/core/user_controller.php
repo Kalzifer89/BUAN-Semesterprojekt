@@ -29,6 +29,7 @@ $UserArray = mysqli_query ($db_link, $DatenbankAbfrageUser);
                             <th>Mail Adresse</th>
                             <th>Land</th>
                             <th>Bearbeiten</th>
+                            <th>Gesperrt</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -58,6 +59,26 @@ $UserArray = mysqli_query ($db_link, $DatenbankAbfrageUser);
                            print "  <span class=\"text\">Bearbeiten</span>\n";
                            print " </a>";
                            echo "</td>";
+                           if ($zeile['locked'] == 1) {
+                             echo "<td>";
+                             print "<a href=\"user_edit.php?userID=".$zeile['userID']."\" class=\"btn btn-danger btn-icon-split\">\n";
+                             print "  <span class=\"icon text-white-50\">\n";
+                             print "   <i class=\"fas fa-trash\"></i>\n";
+                             print "  </span>\n";
+                             print "  <span class=\"text\">Locked</span>\n";
+                             print " </a>";
+                             echo "</td>";
+                           }
+                           else {
+                             echo "<td>";
+                             print "<a href=\"user_edit.php?userID=".$zeile['userID']."\" class=\"btn btn-success btn-icon-split\">\n";
+                             print "  <span class=\"icon text-white-50\">\n";
+                             print "   <i class=\"fas fa-check\"></i>\n";
+                             print "  </span>\n";
+                             print "  <span class=\"text\">Unlocked</span>\n";
+                             print " </a>";
+                             echo "</td>";
+                           }
                         echo "</tr>";
                        }
                        ?>
@@ -68,6 +89,7 @@ $UserArray = mysqli_query ($db_link, $DatenbankAbfrageUser);
                             <td><strong>Mail Adresse</strong></td>
                             <td><strong>Land</strong></td>
                             <td><strong>Bearbeiten</strong></td>
+                            <td><strong>Gesperrt</strong></td>
                     </tfoot>
                 </table>
             </div>

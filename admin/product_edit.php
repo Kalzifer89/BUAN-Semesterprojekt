@@ -31,6 +31,7 @@ while ($zeile = mysqli_fetch_array($ProduktArray))
    $productImage = $zeile['productImage'];
    $productCategoryID = $zeile['productCategoryID'];
    $productPrice = $zeile['productPrice'];
+   $locked = $zeile['locked'];
  }
 
  //Kategorien Abfragen
@@ -47,9 +48,12 @@ while ($zeile = mysqli_fetch_array($ProduktArray))
    $productImage = $_POST['productImage'];
    $productCategoryID = $_POST['productCategoryID'];
    $productPrice = $_POST['productPrice'];
+   $locked = $_POST['locked'];
 
-   $DatenbankUpdateProducts = "UPDATE products SET productNameDE = '$productNameDE', productNameENG = '$productNameENG', productDescriptionDE = '$productDescriptionDE', productImage = '$productImage', productCategoryID = '$productCategoryID', productPrice = '$productPrice' WHERE  productID = '$productID'";
+   $DatenbankUpdateProducts = "UPDATE products SET productNameDE = '$productNameDE', productNameENG = '$productNameENG', productDescriptionDE = '$productDescriptionDE' , productDescriptionENG = '$productDescriptionENG', productImage = '$productImage', productCategoryID = '$productCategoryID', productPrice = '$productPrice', locked = '$locked' WHERE  productID = '$productID'";
    $ProductsArray = mysqli_query ($db_link, $DatenbankUpdateProducts);
+
+   $ProductsFehlermeldung = "Die Daten wurden erfolgreich geändert.";
  }
 
 include 'core/header.php';
@@ -63,6 +67,12 @@ if (!isset($_SESSION['LoggedInAdmin']))
 
  <div class="container-fluid">
     <h3 class="text-dark mb-4">Product Mangement</h3>
+    <?php if (isset($ProductsFehlermeldung))
+    {
+      echo "<script type=\"text/javascript\">\n";
+      echo "alert(\"$ProductsFehlermeldung\");\n";
+      echo "</script>";
+    } ?>
     <div class="card shadow">
         <div class="card-header py-3">
             <p class="text-primary m-0 font-weight-bold">Edit Product</p>
@@ -75,7 +85,7 @@ if (!isset($_SESSION['LoggedInAdmin']))
               <div class="form-group"><label>Product Description DE:</label><textarea class="form-control" name="productDescriptionDE" rows="10"><?php echo $productDescriptionDE; ?></textarea></div>
               <div class="form-group"><label>Product Description ENG:</label><textarea class="form-control" name="productDescriptionENG" rows="10"><?php echo $productDescriptionENG; ?></textarea></div>
               <div class="form-group"><label>Prize:</label><input type="number" name="productPrice" value="<?php echo $productPrice; ?>" class="form-control" /></div>
-              <div class="form-group"><label>Product Category: </label><select name="productCategoryID"><optgroup label="Categorys">
+              <div class="form-group"><label>Product Category: </label></br><select name="productCategoryID"><optgroup label="Categorys">
                 <?php
                 while ($zeile = mysqli_fetch_array($KategorientArray))
                  {
@@ -88,6 +98,19 @@ if (!isset($_SESSION['LoggedInAdmin']))
                  }
                  ?>
               </optgroup></select></div>
+
+              <div class="form-group"><label>Locked:</label></br><select name="locked"><optgroup label="Lock Status">
+                <?php
+                if ($locked == 1) {
+                  echo "<option value=\"1\" selected>Locked</option>";
+                  echo "<option value=\"0\">Unlocked</option>";
+                }else {
+                  echo "<option value=\"0\" selected>Unlocked</option>";
+                  echo "<option value=\"1\" >Locked</option>";
+                }
+                 ?>
+              </optgroup></select></div>
+
               <input type="hidden" name="edit" value="1">
               <button class="btn btn-primary btn-block" type="submit">Ändern</button></form>
           </form>

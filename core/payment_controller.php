@@ -10,6 +10,24 @@
 
 //Variable Initaltisieren
 $gesamtpreis = 0;
+$Counter = 0;
+
+//Array Durchgehen und Möglicherweise Geänderte Anzahl aus dem Warenkorb Aktualisieren.
+$shoppingcart = $_SESSION['shoppingcart'];
+foreach ($_SESSION['shoppingcart'] as $product_ID)
+{
+  //Speichern von Der Product ID
+  $ArrayProductID = $product_ID['productID'];
+  //Zusammenbauen der POST Variable
+  $String = "price_".$product_ID['productID'];
+  //Post Variable Speichen.
+  $NeueAnzahl = $_POST[$String];
+  //Neue Anzahl schreiben
+  $shoppingcart[$Counter]['productAmount'] = $NeueAnzahl;
+  //Counter erhöhen
+  $Counter ++;
+}
+ $_SESSION['shoppingcart'] = $shoppingcart;
 
  ?>
 <main class="page payment-page">

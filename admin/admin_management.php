@@ -2,9 +2,9 @@
 ///////////////////////////////////////////////
 // Semesterproject - BUAN                     //
 // Fachbereich Medien FH-Kiel - 5. Semester  //
-// Beschreibung : Admin Bereich Startseite   //
+// Beschreibung : Admin Management           //
 // Ersteller    : Sven Krumbeck              //
-// Stand        : 31.10.19                   //
+// Stand        : 06.10.19                   //
 // Version      : 1.0                        //
 ///////////////////////////////////////////////
 
@@ -15,7 +15,7 @@ include "core/header.php";
 
 if (isset($_SESSION['LoggedInAdmin']))
 {
-  include "core/statistics_controller.php";
+  include "core/admin_controller.php";
 }
 else {
   echo "Bitte einloggen.";

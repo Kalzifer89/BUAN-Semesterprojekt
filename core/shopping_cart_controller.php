@@ -83,16 +83,16 @@ echo "  <div class=\"product\">";
 
 echo "                                <div class=\"row justify-content-center align-items-center\">\n";
 echo "                                    <div class=\"col-md-3\">\n";
-echo "                                        <div class=\"product-image\"><img class=\"img-fluid d-block mx-auto image\" src=\"assets/img/tech/".$product_ID['productImage']."\"></div>\n";
+echo "                                        <div class=\"product-image\"><img class=\"img-fluid d-block mx-auto image\" src=\"assets/img/uploads/".$product_ID['productImage']."\"></div>\n";
 echo "                                    </div>\n";
-echo "                                    <div class=\"col-md-5 product-info\"><a class=\"product-name\" href=\"#\">".$product_ID['productNameDE']."</a>\n";
+echo "                                    <div class=\"col-md-5 product-info\"><a class=\"product-name\" href=\"product-page.php?produktID=".$product_ID['productID']."\">".$product_ID['productNameDE']."</a>\n";
 echo "                                        <div class=\"product-specs\">\n";
 echo "                                            <div><span>Display: </span><span class=\"value\">5 inch</span></div>\n";
 echo "                                            <div><span>RAM: </span><span class=\"value\">4GB</span></div>\n";
 echo "                                            <div><span>Memory: </span><span class=\"value\">32GB</span></div>\n";
 echo "                                        </div>\n";
 echo "                                    </div>\n";
-echo "                                    <div class=\"col-6 col-md-2 quantity\"><label class=\"d-none d-md-block\" for=\"quantity\">Anzahl:</label><input type=\"number\" id=\"number\" class=\"form-control quantity-input\" value=\"".$product_ID['productAmount']."\" name=\"productID".$product_ID['productID']."\"></div>\n";
+echo "                                    <div class=\"col-6 col-md-2 quantity\"><label class=\"d-none d-md-block\" for=\"quantity\">Anzahl:</label><input type=\"number\" name=\"price_".$product_ID['productID']."\" id=\"number\" class=\"form-control quantity-input\" value=\"".$product_ID['productAmount']."\" name=\"productID".$product_ID['productID']."\"></div>\n";
 echo "                                    <div class=\"col-6 col-md-2 price\"><span>".$product_ID['productPrice']."€</span></div>\n";
 echo "                                </div>\n";
 echo "                            </div>";
@@ -113,12 +113,13 @@ $gesamtpreis = $gesamtpreis + $product_ID['productPrice'] * $product_ID['product
                         <div class="summary">
                             <h3>Gesamt:</h3>
                             <h4><span class="text">Zwischensumme</span><span class="price"><?php echo $gesamtpreis; ?>€</span></h4>
-                            <h4><span class="text">Nachlass</span><span class="price">$0</span></h4>
-                            <h4><span class="text">Versand</span><span class="price">$0</span></h4>
+                            <h4><span class="text">Nachlass</span><span class="price">0€</span></h4>
+                            <h4><span class="text">Versand</span><span class="price">0€</span></h4>
                             <h4><span class="text">Total</span><span class="price"><?php echo $gesamtpreis; ?>€</span></h4>
                             <button class="btn btn-primary btn-block btn-lg" type="submit">Bezahlen</button></div>
                     </div>
                 </div>
+              </form>
             </div>
         </div>
     </section>

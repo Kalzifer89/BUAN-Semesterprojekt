@@ -27,7 +27,7 @@ if (isset($_POST['name'])) {
   $Username = $_POST['name'];
   $Passwort = md5($_POST['passwort']);
   //Datenbank Abfrage nach Benutzername
-  $DatenbankAbfrageUser = "SELECT userName FROM users WHERE userName LIKE '$Username'";
+  $DatenbankAbfrageUser = "SELECT userName FROM users WHERE userName LIKE '$Username' AND locked = 0";
   $UserArray = mysqli_query ($db_link, $DatenbankAbfrageUser);
   //Datenbank Abfrage nach Passwort
   $DatenbankAbfragePasswort = "SELECT UserPassword FROM users WHERE UserPassword LIKE '$Passwort';";

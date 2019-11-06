@@ -34,6 +34,7 @@ while ($zeile = mysqli_fetch_array($UserArray))
    $userPostcode = $zeile['userPostcode'];
    $userCity = $zeile['userCity'];
    $userCountry = $zeile['userCountry'];
+   $locked = $zeile['locked'];
  }
 
  //Wenn Userdaten geändert worden sind
@@ -57,9 +58,12 @@ while ($zeile = mysqli_fetch_array($UserArray))
    $postcode = $_POST['postcode'];
    $city= $_POST['city'];
    $country= $_POST['country'];
+   $locked = $_POST['locked'];
 
-   $DatenbankUpdateUser = "UPDATE users SET userName = '$registername', userMail = '$registermail', userPassword = '$registerpassword', userSalution = '$salution', userSurname = '$surname', userMainname = '$mainname', userTelephone = '$telephone', userStreet = '$street', userHousenr = '$housenr', userPostcode = '$postcode', userCity = '$city' WHERE userID = '$userID'";
+   $DatenbankUpdateUser = "UPDATE users SET userName = '$registername', userMail = '$registermail', userPassword = '$registerpassword', userSalution = '$salution', userSurname = '$surname', userMainname = '$mainname', userTelephone = '$telephone', userStreet = '$street', userHousenr = '$housenr', userPostcode = '$postcode', userCity = '$city', locked = '$locked' WHERE userID = '$userID'";
    $UserArray = mysqli_query ($db_link, $DatenbankUpdateUser);
+
+   $UserFehlermeldung = "Sie haben die Daten erfolgreich geändert.";
  }
 
 include 'core/header.php';
@@ -73,6 +77,12 @@ if (!isset($_SESSION['LoggedInAdmin']))
 
  <div class="container-fluid">
     <h3 class="text-dark mb-4">User Verwaltung</h3>
+    <?php if (isset($UserFehlermeldung))
+    {
+      echo "<script type=\"text/javascript\">\n";
+      echo "alert(\"$UserFehlermeldung\");\n";
+      echo "</script>";
+    } ?>
     <div class="card shadow">
         <div class="card-header py-3">
             <p class="text-primary m-0 font-weight-bold">User Bearbeiten</p>
@@ -96,6 +106,17 @@ if (!isset($_SESSION['LoggedInAdmin']))
                  <div class="form-group"><label for="name">Postleitzahl:</label><input class="form-control item" type="text" id="name" name="postcode" value="<?php echo $userPostcode ?>"></div>
                  <div class="form-group"><label for="name">Ort:</label><input class="form-control item" type="text" id="name" name="city" value="<?php echo $userCity ?>"></div>
                  <div class="form-group"><label for="name">Land:</label><select class="form-control" name="country"><optgroup label="country"><option value="1" selected>Deutschland</option><option value="2">Frankreich</option><option value="3">Spanien</option><option value>Dänemark</option></optgroup></select></div>
+                 <div class="form-group"><label>Locked:</label></br><select name="locked"><optgroup label="Lock Status">
+                   <?php
+                   if ($locked == 1) {
+                     echo "<option value=\"1\" selected>Locked</option>";
+                     echo "<option value=\"0\">Unlocked</option>";
+                   }else {
+                     echo "<option value=\"0\" selected>Unlocked</option>";
+                     echo "<option value=\"1\" >Locked</option>";
+                   }
+                    ?>
+                 </optgroup></select></div>
                    <input type="hidden" name="edit" value="1">
                  <button class="btn btn-primary btn-block" type="submit">Ändern</button></form>
                </div>

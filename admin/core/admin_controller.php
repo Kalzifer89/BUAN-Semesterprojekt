@@ -2,46 +2,42 @@
 ///////////////////////////////////////////////
 // Semesterproject - BUAN                     //
 // Fachbereich Medien FH-Kiel - 5. Semester  //
-// Beschreibung : Produkte Verwaltung        //
+// Beschreibung : User Verwaltung             //
 // Ersteller    : Sven Krumbeck              //
-// Stand        : 05.10.19                   //
+// Stand        : 06.10.19                   //
 // Version      : 1.0                        //
 ///////////////////////////////////////////////
 
-$DatenbankAbfrageProdukte = "SELECT * FROM products";
-$ProdukteArray = mysqli_query ($db_link, $DatenbankAbfrageProdukte);
+$DatenbankAbfrageUser = "SELECT * FROM admins";
+$UserArray = mysqli_query ($db_link, $DatenbankAbfrageUser);
 //Ausgabe der items
 
  ?>
 
  <div class="container-fluid">
-    <h3 class="text-dark mb-4">Product Mangement</h3>
+    <h3 class="text-dark mb-4">Admin Verwaltung</h3>
     <div class="card shadow">
         <div class="card-header py-3">
-            <p class="text-primary m-0 font-weight-bold">Products in System</p>
+            <p class="text-primary m-0 font-weight-bold">Admins im System</p>
         </div>
         <div class="card-body">
             <div class="table-responsive table mt-2" id="dataTable" role="grid" aria-describedby="dataTable_info">
                 <table class="table dataTable my-0" id="dataTable">
                     <thead>
                         <tr>
-                            <th>Product Name DE</th>
-                            <th>Product Name ENG</th>
-                            <th>Product Prize</th>
+                            <th>Name</th>
                             <th>Bearbeiten</th>
                             <th>Gesperrt</th>
                         </tr>
                     </thead>
                     <tbody>
                       <?php
-                      while ($zeile = mysqli_fetch_array($ProdukteArray))
+                      while ($zeile = mysqli_fetch_array($UserArray))
                        {
                          echo "<tr>";
-                           echo "<td>".$zeile['productNameDE']."</td>\n";
-                           echo "<td>".$zeile['productNameENG']."</td>\n";
-                           echo "<td>".$zeile['productPrice']."€</td>\n";
+                           echo "<td>".$zeile['adminName']."</td>\n";
                            echo "<td>";
-                           print "<a href=\"product_edit.php?productID=".$zeile['productID']."\" class=\"btn btn-warning btn-icon-split\">\n";
+                           print "<a href=\"admin_edit.php?userID=".$zeile['adminID']."\" class=\"btn btn-warning btn-icon-split\">\n";
                            print "  <span class=\"icon text-white-50\">\n";
                            print "   <i class=\"fas fa-exclamation-triangle\"></i>\n";
                            print "  </span>\n";
@@ -50,7 +46,7 @@ $ProdukteArray = mysqli_query ($db_link, $DatenbankAbfrageProdukte);
                            echo "</td>";
                            if ($zeile['locked'] == 1) {
                              echo "<td>";
-                             print "<a href=\"product_edit.php?productID=".$zeile['productID']."\" class=\"btn btn-danger btn-icon-split\">\n";
+                             print "<a href=\"admin_edit.php?userID=".$zeile['adminID']."\" class=\"btn btn-danger btn-icon-split\">\n";
                              print "  <span class=\"icon text-white-50\">\n";
                              print "   <i class=\"fas fa-trash\"></i>\n";
                              print "  </span>\n";
@@ -60,7 +56,7 @@ $ProdukteArray = mysqli_query ($db_link, $DatenbankAbfrageProdukte);
                            }
                            else {
                              echo "<td>";
-                             print "<a href=\"product_edit.php?productID=".$zeile['productID']."\" class=\"btn btn-success btn-icon-split\">\n";
+                             print "<a href=\"admin_edit.php?userID=".$zeile['adminID']."\" class=\"btn btn-success btn-icon-split\">\n";
                              print "  <span class=\"icon text-white-50\">\n";
                              print "   <i class=\"fas fa-check\"></i>\n";
                              print "  </span>\n";
@@ -74,11 +70,9 @@ $ProdukteArray = mysqli_query ($db_link, $DatenbankAbfrageProdukte);
                     </tbody>
                     <tfoot>
                         <tr>
-                          <th>Product Name DE</th>
-                          <th>Product Name ENG</th>
-                          <th>Product Prize</th>
-                          <th>Bearbeiten</th>
-                          <th>Gesperrt</th>
+                            <td><strong>Name</strong></td>
+                            <td><strong>Bearbeiten</strong></td>
+                            <td><strong>Gesperrt</strong></td>
                     </tfoot>
                 </table>
             </div>
@@ -86,4 +80,3 @@ $ProdukteArray = mysqli_query ($db_link, $DatenbankAbfrageProdukte);
         </div>
     </div>
 </div>
- ?>
