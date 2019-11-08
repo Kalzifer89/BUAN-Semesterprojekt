@@ -8,6 +8,7 @@ $shoppingcartlang [0][6] = "Versand";
 $shoppingcartlang [0][7] = "Anzahl:";
 $shoppingcartlang [0][8] = "Bezahlen";
 $shoppingcartlang [0][9] = "MwSt Inklusive";
+$shoppingcartlang [0][10] = "Der Warenkorb ist leer";
 
 $shoppingcartlang [1][1] = "Shopping Basket";
 $shoppingcartlang [1][2] = "Here you can see your Shopping Basket.";
@@ -18,4 +19,5 @@ $shoppingcartlang [1][6] = "Shipping";
 $shoppingcartlang [1][7] = "Amount";
 $shoppingcartlang [1][8] = "Pay";
 $shoppingcartlang [1][9] = "Including Taxes";
+$shoppingcartlang [1][10] = "The Shopping Cart is emtpy.";
 ?>

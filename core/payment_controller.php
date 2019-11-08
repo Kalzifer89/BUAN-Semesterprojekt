@@ -27,10 +27,21 @@ foreach ($_SESSION['shoppingcart'] as $product_ID)
   $NeueAnzahl = $_POST[$String];
   //Neue Anzahl schreiben
   $shoppingcart[$Counter]['productAmount'] = $NeueAnzahl;
+
+  //Wenn in Product 0 mal im Warenkorb ist Array Zeile Löschen
+  if ($shoppingcart[$Counter]['productAmount'] < 1) {
+    unset ($shoppingcart[$Counter]);
+    unset ($shoppingcart[$Counter]['productAmount']);
+  }
+
   //Counter erhöhen
   $Counter ++;
 }
- $_SESSION['shoppingcart'] = $shoppingcart;
+
+  //Array Neu Durchnummeren
+  $shoppingcart = array_values($shoppingcart);
+  $_SESSION['shoppingcart'] = $shoppingcart;
+
 
  ?>
 <main class="page payment-page">
@@ -74,7 +85,7 @@ foreach ($_SESSION['shoppingcart'] as $product_ID)
                             <div class="form-group"><label for="cvc">CVC</label><input class="form-control" type="text" id="cvc" placeholder="CVC" value="666"></div>
                         </div>
                         <div class="col-sm-12">
-                            <div class="form-group"><button class="btn btn-primary btn-block" type="submit"><?php echo $paymentlang[$_COOKIE['language']][5]; ?></button></div>
+                            <div class="form-group"><button class="btn btn-primary btn-block" type="submit" <?php  if (empty($shoppingcart)) {echo "disabled";} ?>><?php echo $paymentlang[$_COOKIE['language']][5]; ?></button></div>
                             <input type="hidden" name="payed" value="1">
                         </div>
                     </div>

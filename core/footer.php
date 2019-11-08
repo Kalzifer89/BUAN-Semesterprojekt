@@ -2,35 +2,34 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-3">
-                <h5>Get started</h5>
+                <h5>Firma</h5>
                 <ul>
-                    <li><a href="#">Home</a></li>
-                    <li><a href="#">Sign up</a></li>
-                    <li><a href="#">Downloads</a></li>
+                    <li><a href="login.php">Login</a></li>
+                    <li><a href="registration.php">Registrieren</a></li>
+                    <li><a href="password-reset.php">Passwort Vergessen</a></li>
                 </ul>
             </div>
             <div class="col-sm-3">
-                <h5>About us</h5>
+                <h5>Über uns</h5>
                 <ul>
-                    <li><a href="#">Company Information</a></li>
-                    <li><a href="#">Contact us</a></li>
-                    <li><a href="#">Reviews</a></li>
+                    <li><a href="index.php">Home</a></li>
+                    <li><a href="pricing.php">Boni</a></li>
+                    <li><a href="contact-us.php">Contact US</a></li>
                 </ul>
             </div>
             <div class="col-sm-3">
-                <h5>Support</h5>
+                <h5>Shop</h5>
                 <ul>
-                    <li><a href="#">FAQ</a></li>
-                    <li><a href="#">Help desk</a></li>
-                    <li><a href="#">Forums</a></li>
+                    <li><a href="catalog-page.php">Shopseite</a></li>
+                    <li><a href="shopping-cart.php">Warenkorb</a></li>
+                    <li><a href="account.php">Bestellungen</a></li>
                 </ul>
             </div>
             <div class="col-sm-3">
-                <h5>Legal</h5>
+                <h5>Admin Bereich</h5>
                 <ul>
-                    <li><a href="#">Terms of Service</a></li>
-                    <li><a href="#">Terms of Use</a></li>
-                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="admin/index.php">Übersicht</a></li>
+                    <li><a href="admin/login.php">Einloggen</a></li>
                 </ul>
             </div>
         </div>

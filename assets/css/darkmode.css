@@ -1,3 +1,8 @@
+body {
+  color: white !important;
+  background-color: !important;
+}
+
 .bg-white {
   background-color: black !important;
 }
@@ -53,4 +58,52 @@ body p, h3, h4 {
 .clean-card p {
   color: black !important;
   font-size: 1.5rem!important;
+}
+
+.clean-pricing-item {
+  background-color: black !important;
+}
+
+.clean-block.clean-form form {
+  background-color: black !important;
+}
+
+.clean-product-item {
+  background-color: black !important;
+}
+
+label {
+  color: white;
+}
+
+.clean-block .block-content, .clean-block .content {
+  background-color: black !important;
+}
+
+.table thead th {
+  color: white;
+}
+
+.table td, .table th {
+  color: white;
+}
+
+h3 {
+  color: white;
+}
+
+.clean-block.clean-cart .summary {
+    background-color: black !important;
+}
+
+.clean-block.clean-cart .summary h4 {
+  background-color: black !important;
+}
+
+.clean-block.payment-form .products{
+  background-color: black !important;
+}
+
+.clean-block.payment-form .card-details {
+  background-color: black !important;
 }

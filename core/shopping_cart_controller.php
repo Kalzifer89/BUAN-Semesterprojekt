@@ -78,7 +78,7 @@ if (isset($_POST['productID'])) {
                     <div class="col-md-12 col-lg-8">
                         <div class="items">
                           <?php
-                          if (isset($_SESSION['shoppingcart'])) {
+                          if (!empty($_SESSION['shoppingcart'])) {
                           foreach ($_SESSION['shoppingcart'] as $product_ID)
                               {
 echo "  <div class=\"product\">";
@@ -104,7 +104,7 @@ $gesamtpreis = $gesamtpreis + $product_ID['productPrice'] * $product_ID['product
                             // code...
                           }
                           else {
-                            echo "<h4>Der Warenkorb ist leer</h4>";
+                            echo "<h4>".$shoppingcartlang[$_COOKIE['language']][10]."</h4>";
                           }
                           ?>
                         </div>
@@ -116,7 +116,7 @@ $gesamtpreis = $gesamtpreis + $product_ID['productPrice'] * $product_ID['product
                             <h4><span class="text"><?php echo $shoppingcartlang[$_COOKIE['language']][5]; ?></span><span class="price">0€</span></h4>
                             <h4><span class="text"><?php echo $shoppingcartlang[$_COOKIE['language']][6]; ?></span><span class="price">0€</span></h4>
                             <h4><span class="text"><?php echo $shoppingcartlang[$_COOKIE['language']][7]; ?></span><span class="price"><?php echo $gesamtpreis; ?>€</span></h4>
-                            <button class="btn btn-primary btn-block btn-lg" type="submit"><?php echo $shoppingcartlang[$_COOKIE['language']][8]; ?></button></div>
+                            <button class="btn btn-primary btn-block btn-lg" type="submit"<?php if (empty($_SESSION['shoppingcart'])) {echo "disabled";} ?> ><?php echo $shoppingcartlang[$_COOKIE['language']][8]; ?></button></div>
                     </div>
                 </div>
               </form>
