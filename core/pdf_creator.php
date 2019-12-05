@@ -89,21 +89,28 @@ $html .= $TabelleBestellungen;
         <td><b>'.$UmsatzMonat.'€</b></td>
       </tr>';
 
-             if ($UmsatzMonat >= 1000) {
-               $Boni = 500;
-             }
-             elseif ($UmsatzMonat >= 3000) {
-               $Boni = 1000;
-             }elseif ($UmsatzMonat >= 3000) {
-               $Boni = 1500;
-             }
-             $GehaltMonat = $UmsatzMonat + $Boni;
+      if ($UmsatzMonat > 0 && $UmsatzMonat <= 1000) {
+        $Boni = 500;
+      }
+      elseif ($UmsatzMonat > 0 && $UmsatzMonat <= 3000) {
+        $Boni = 1000;
+      }elseif ($UmsatzMonat > 0 && $UmsatzMonat >= 3000) {
+        $Boni = 1500;
+      }else {
+        $Boni = 0;
+      }
+      $GehaltMonat = 3000 + $Boni;
 
   $html .='
       <tr>
         <td><b>Boni auf Umsatz:</b></td>
         <td></td>
         <td><b>'.$Boni.'€</b></td>
+      </tr>
+      <tr>
+        <td><b>Basis Gehalt</b></td>
+        <td></td>
+        <td><b>3000€</b></td>
       </tr>
       <tr>
         <td><b>Gesamtes Gehalt:</b></td>

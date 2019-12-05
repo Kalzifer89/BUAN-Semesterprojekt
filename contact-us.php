@@ -15,7 +15,7 @@ if (empty($_POST['name']) or empty($_POST['betreff']) or empty($_POST['mail']) o
 
   mail($mail, $betreff, $text, $from);
 
-  $Fehlermeldung = "Ihre Nachricht wurde erfolgreich verschickt.";
+  $Fehlermeldung = "Ihre Nachricht wurde erfolgreich verschickt. / Your Message was send Sucessfully.";
 }
  ?>
 

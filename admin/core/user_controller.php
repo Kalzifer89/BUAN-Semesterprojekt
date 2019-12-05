@@ -39,16 +39,16 @@ $UserArray = mysqli_query ($db_link, $DatenbankAbfrageUser);
                          echo "<tr>";
                            echo "<td>".$zeile['userSurname']." ".$zeile['userMainname']."</td>\n";
                            echo "<td>".$zeile['userMail']."</td>\n";
-                           if ($zeile['userCountry'] = 1) {
+                           if ($zeile['userCountry'] == 1) {
                              echo "<td>Deutschland</td>\n";
                            }
-                           elseif ($zeile['userCountry'] = 2) {
+                           elseif ($zeile['userCountry'] == 2) {
                               echo "<td>Frankreich</td>\n";
                            }
-                           elseif ($zeile['userCountry'] = 3) {
+                           elseif ($zeile['userCountry'] == 3) {
                              echo "<td>Spanien</td>\n";
                            }
-                           elseif ($zeile['userCountry'] = 4) {
+                           elseif ($zeile['userCountry'] == 4) {
                              echo "<td>Dänemark</td>\n";
                            }
                            echo "<td>";

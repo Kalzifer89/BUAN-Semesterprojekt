@@ -19,23 +19,20 @@
     ?>
 </head>
 
+<?php include "language/menu_lang.php" ?>
+
 <body>
     <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
         <div class="container"><a class="navbar-brand logo" href="#">iSchool</a><button data-toggle="collapse" class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span class="navbar-toggler-icon"></span></button>
             <div class="collapse navbar-collapse"
                 id="navcol-1">
                 <ul class="nav navbar-nav ml-auto">
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="index.php">Home</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="pricing.php">Bonus</a></li>
-                    <!-- <li class="nav-item" role="presentation"><a class="nav-link" href="product-page.php">Product</a></li> -->
-                    <!-- <li class="nav-item" role="presentation"><a class="nav-link" href="payment-page.php">Payment</a></li> -->
-                    <!-- <li class="nav-item" role="presentation"><a class="nav-link" href="shopping-cart.php">Shopping Cart</a></li> -->
-
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="login.php">Login</a></li>
-                    <!-- <li class="nav-item" role="presentation"><a class="nav-link" href="registration.php">Register</a></li> -->
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="catalog-page.php">Shop</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="account.php">Account</a></li>
-                    <li class="nav-item" role="presentation"><a class="nav-link" href="contact-us.php">Contact Us</a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="index.php"><?php echo $menulang [$_COOKIE['language']][1]; ?></a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="pricing.php"><?php echo $menulang [$_COOKIE['language']][2]; ?></a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="login.php"><?php echo $menulang [$_COOKIE['language']][3]; ?></a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="catalog-page.php"><?php echo $menulang [$_COOKIE['language']][4]; ?></a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="account.php"><?php echo $menulang [$_COOKIE['language']][5]; ?></a></li>
+                    <li class="nav-item" role="presentation"><a class="nav-link" href="contact-us.php"><?php echo $menulang [$_COOKIE['language']][6]; ?></a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="shopping-cart.php" ><img src="assets/img/shoppingcart.png" width="20"></a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="#" onclick="SpracheDE()"><img src="assets/img/Download%20(2).png" width="20"></a></li>
                     <li class="nav-item" role="presentation"><a class="nav-link" href="#" onclick="SpracheEN()"><img src="assets/img/britishflag.jpg" width="20"></a></li>

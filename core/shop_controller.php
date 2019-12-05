@@ -62,7 +62,12 @@ else {
                                      <?php
                                      while ($zeile = mysqli_fetch_array($CategoryArray))
                                          {
-                                           echo "<div class=\"form-check\"><input class=\"form-check-input\" type=\"radio\" id=\"formCheck-1\" name=\"category\" value=\"".$zeile['categoryID']."\"><label class=\"form-check-label\" for=\"formCheck-1\">".$zeile['categoryNameDE']."</label></div>";
+                                           if ($_COOKIE['language'] == 0) {
+                                              echo "<div class=\"form-check\"><input class=\"form-check-input\" type=\"radio\" id=\"formCheck-1\" name=\"category\" value=\"".$zeile['categoryID']."\"><label class=\"form-check-label\" for=\"formCheck-1\">".$zeile['categoryNameDE']."</label></div>";
+                                           }else {
+                                              echo "<div class=\"form-check\"><input class=\"form-check-input\" type=\"radio\" id=\"formCheck-1\" name=\"category\" value=\"".$zeile['categoryID']."\"><label class=\"form-check-label\" for=\"formCheck-1\">".$zeile['categoryNameENG']."</label></div>";
+                                           }
+
                                          }
                                       ?>
                                  </div>

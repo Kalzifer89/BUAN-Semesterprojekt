@@ -34,24 +34,24 @@ if (isset($_POST['year'])) {
 }
 
 //Monate Auflösen
-$MonatName[1] = "Januar";
-$MonatName[2] = "Feburar";
-$MonatName[3] = "März";
-$MonatName[4] = "April";
-$MonatName[5] = "Mai";
-$MonatName[6] = "Juni";
-$MonatName[7] = "Juli";
-$MonatName[8] = "August";
-$MonatName[9] = "September";
-$MonatName[10] = "Oktober";
-$MonatName[11] = "November";
-$MonatName[12] = "Dezember";
+$MonatName[1] = "Januar / January";
+$MonatName[2] = "Feburar / Feburary";
+$MonatName[3] = "März / March";
+$MonatName[4] = "April / April";
+$MonatName[5] = "Mai / May";
+$MonatName[6] = "Juni / June";
+$MonatName[7] = "Juli / July ";
+$MonatName[8] = "August / August";
+$MonatName[9] = "September / September";
+$MonatName[10] = "Oktober / October";
+$MonatName[11] = "November / November";
+$MonatName[12] = "Dezember / December";
 
 //Abfragen der Bestellungen
 $DatenbankAbfrageBestellungen= "SELECT * FROM orders WHERE userID = '$userID'";
 $BestellungenArray = mysqli_query ($db_link, $DatenbankAbfrageBestellungen);
 //Abfragen der Boni nach Monat
-$DatenbankAbfrageMonatsBestellungen= "SELECT * FROM orders WHERE MONTH(orderDate) = '$Monat' AND YEAR(orderDate) = '$Year'";
+$DatenbankAbfrageMonatsBestellungen= "SELECT * FROM orders WHERE MONTH(orderDate) = '$Monat' AND YEAR(orderDate) = '$Year' AND userID = '$userID' ";
 $MonatsBestellungenArray = mysqli_query ($db_link, $DatenbankAbfrageMonatsBestellungen);
 
 
@@ -178,20 +178,27 @@ $MonatsBestellungenArray = mysqli_query ($db_link, $DatenbankAbfrageMonatsBestel
                                <td><b><?php echo $UmsatzMonat; ?>€</b></td>
                              </tr>
                               <?php //Boni Berechnung
-                                    if ($UmsatzMonat >= 1000) {
+                                    if ($UmsatzMonat > 0 && $UmsatzMonat <= 1000) {
                                       $Boni = 500;
                                     }
-                                    elseif ($UmsatzMonat >= 3000) {
+                                    elseif ($UmsatzMonat > 0 && $UmsatzMonat <= 3000) {
                                       $Boni = 1000;
-                                    }elseif ($UmsatzMonat >= 3000) {
+                                    }elseif ($UmsatzMonat > 0 && $UmsatzMonat >= 3000) {
                                       $Boni = 1500;
+                                    }else {
+                                      $Boni = 0;
                                     }
-                                    $GehaltMonat = $UmsatzMonat + $Boni;
+                                    $GehaltMonat = 3000 + $Boni;
                                ?>
                              <tr>
                                <td><b><?php echo $accountlang[$_COOKIE['language']][15]; ?></b></td>
                                <td></td>
                                <td><b><?php echo $Boni; ?>€</b></td>
+                             </tr>
+                             <tr>
+                               <td><b><?php echo $accountlang[$_COOKIE['language']][19]; ?></b></td>
+                               <td></td>
+                               <td><b>3000€</b></td>
                              </tr>
                              <tr>
                                <td><b><?php echo $accountlang[$_COOKIE['language']][16]; ?></b></td>

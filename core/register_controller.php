@@ -13,7 +13,7 @@ if (isset($_POST['registername'])) {
   $registermail = $_POST['registermail'];
   $registerpassword = md5($_POST['registerpassword']);
   $secretquestion = $_POST['secretquestion'];
-  $answer = $_POST['answer'];
+  $answer = $_POST['questionanswer'];
   $salution = $_POST['salution'];
   $surname = $_POST['surname'];
   $mainname = $_POST['mainname'];
@@ -21,8 +21,8 @@ if (isset($_POST['registername'])) {
   $street = $_POST['street'];
   $housenr = $_POST['housenr'];
   $postcode = $_POST['postcode'];
-  $city= $_POST['city'];
-  $country= $_POST['country'];
+  $city = $_POST['city'];
+  $country = $_POST['country'];
 }
 
 //Bei Erfolgreichen Login Login Cookie Erstellen ansonsten Fehlermeldung
@@ -46,8 +46,8 @@ if (isset($_POST['registrieren']))
       else {
             $RegisterFehlermeldung ="Sie sind erfolgreich eingelogt, bitte melden sie sich jetzt an.";
             //Den neuen User in die Datenbank eintragen
-            $DatenbankRegistierungUser = "INSERT INTO users (userName, userMail, userPassword, userSalution, userSurname, userMainname, userTelephone, userStreet, userHousenr, userPostcode, userCity) VALUES
-             ('$registername','$registermail','$registerpassword','$salution','$surname' , '$mainname' , '$telephone', '$street', '$housenr', '$postcode', '$city')";
+            $DatenbankRegistierungUser = "INSERT INTO users (userName, userMail, userPassword, userSecretQuestion, userSalution, userAnswer, userSurname, userMainname, userTelephone, userStreet, userHousenr, userPostcode, userCity, userCountry) VALUES
+             ('$registername','$registermail','$registerpassword','$secretquestion', '$answer','$salution','$surname' , '$mainname' , '$telephone', '$street', '$housenr', '$postcode', '$city', '$country')";
             $UserArray = mysqli_query ($db_link, $DatenbankRegistierungUser);
             echo "<meta http-equiv=\"refresh\" content=\"2; URL=login.php\">";
       }

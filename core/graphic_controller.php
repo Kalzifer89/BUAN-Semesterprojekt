@@ -32,7 +32,7 @@ if ($Boni > 0) {
   $grad_je_prozent = 360 / 100;
 
   //Berechnung Prozent Kreisegement 1
-  $prozentwert1 = $UmsatzMonat / $Gesamtwert * 100;
+  $prozentwert1 = $GehaltMonat / $Gesamtwert * 100;
   //Ende des ersten Kreisegements
   $ende_kreissegment_1 = $grad_je_prozent *$prozentwert1;
   //Zeichnen

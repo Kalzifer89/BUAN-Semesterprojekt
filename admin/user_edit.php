@@ -56,11 +56,11 @@ while ($zeile = mysqli_fetch_array($UserArray))
    $street = $_POST['street'];
    $housenr = $_POST['housenr'];
    $postcode = $_POST['postcode'];
-   $city= $_POST['city'];
-   $country= $_POST['country'];
+   $city = $_POST['city'];
+   $country = $_POST['country'];
    $locked = $_POST['locked'];
 
-   $DatenbankUpdateUser = "UPDATE users SET userName = '$registername', userMail = '$registermail', userPassword = '$registerpassword', userSalution = '$salution', userSurname = '$surname', userMainname = '$mainname', userTelephone = '$telephone', userStreet = '$street', userHousenr = '$housenr', userPostcode = '$postcode', userCity = '$city', locked = '$locked' WHERE userID = '$userID'";
+   $DatenbankUpdateUser = "UPDATE users SET userName = '$registername', userMail = '$registermail', userPassword = '$registerpassword', userSalution = '$salution', userSurname = '$surname', userMainname = '$mainname', userTelephone = '$telephone', userStreet = '$street', userHousenr = '$housenr', userPostcode = '$postcode', userCity = '$city', userCountry = '$country', locked = '$locked' WHERE userID = '$userID'";
    $UserArray = mysqli_query ($db_link, $DatenbankUpdateUser);
 
    $UserFehlermeldung = "Sie haben die Daten erfolgreich geändert.";
@@ -105,7 +105,13 @@ if (!isset($_SESSION['LoggedInAdmin']))
                  <div class="form-group"><label for="name">Hausnummer:</label><input class="form-control item" type="text" id="name" name="housenr" value="<?php echo $userHouseNr ?>"></div>
                  <div class="form-group"><label for="name">Postleitzahl:</label><input class="form-control item" type="text" id="name" name="postcode" value="<?php echo $userPostcode ?>"></div>
                  <div class="form-group"><label for="name">Ort:</label><input class="form-control item" type="text" id="name" name="city" value="<?php echo $userCity ?>"></div>
-                 <div class="form-group"><label for="name">Land:</label><select class="form-control" name="country"><optgroup label="country"><option value="1" selected>Deutschland</option><option value="2">Frankreich</option><option value="3">Spanien</option><option value>Dänemark</option></optgroup></select></div>
+                 <div class="form-group"><label for="name">Land:</label><select class="form-control" name="country">
+                   <optgroup label="country">
+                     <option value="1" <?php if ($userCountry == 1) {echo "selected";} ?>>Deutschland</option>
+                     <option value="2" <?php if ($userCountry == 2) {echo "selected";} ?>>Frankreich</option>
+                     <option value="3" <?php if ($userCountry == 3) {echo "selected";} ?>>Spanien</option>
+                     <option value="4" <?php if ($userCountry == 4) {echo "selected";} ?>>Dänemark</option>
+                   </optgroup></select></div>
                  <div class="form-group"><label>Locked:</label></br><select name="locked"><optgroup label="Lock Status">
                    <?php
                    if ($locked == 1) {

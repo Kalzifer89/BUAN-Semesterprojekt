@@ -18,6 +18,7 @@ $accountlang [0][15] = "Boni auf Umsatz:";
 $accountlang [0][16] = "Gesamtes Gehalt:";
 $accountlang [0][17] = "Grafische Aufbereitung";
 $accountlang [0][18] = "Leider keine Boni in diesem Monat.";
+$accountlang [0][19] = "Basis Einkommen.";
 
 $accountlang [1][1] = "Account Management";
 $accountlang [1][2] = "Here you can Manage your Account";
@@ -37,4 +38,5 @@ $accountlang [1][15] = "Boni on Revenue:";
 $accountlang [1][16] = "Payout Total:";
 $accountlang [1][17] = "Graphic processing";
 $accountlang [1][18] = "Sorry no Boni for this Month.";
+$accountlang [1][19] = "Basic Income";
 ?>
