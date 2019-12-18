@@ -46,8 +46,8 @@ while ($zeile = mysqli_fetch_array($UserArray))
         $registerpassword = md5($_POST['registerpassword']);
    }
    $secretquestion = $_POST['secretquestion'];
-    if (isset($_POST['answer'])) {
-      $answer = $_POST['answer'];
+    if (isset($_POST['questionanswer'])) {
+      $answer = $_POST['questionanswer'];
     }
    $salution = $_POST['salution'];
    $surname = $_POST['surname'];
@@ -60,7 +60,7 @@ while ($zeile = mysqli_fetch_array($UserArray))
    $country = $_POST['country'];
    $locked = $_POST['locked'];
 
-   $DatenbankUpdateUser = "UPDATE users SET userName = '$registername', userMail = '$registermail', userPassword = '$registerpassword', userSalution = '$salution', userSurname = '$surname', userMainname = '$mainname', userTelephone = '$telephone', userStreet = '$street', userHousenr = '$housenr', userPostcode = '$postcode', userCity = '$city', userCountry = '$country', locked = '$locked' WHERE userID = '$userID'";
+   $DatenbankUpdateUser = "UPDATE users SET userName = '$registername', userMail = '$registermail', userPassword = '$registerpassword', userSecretQuestion = '$secretquestion', userAnswer = '$answer',  userSalution = '$salution', userSurname = '$surname', userMainname = '$mainname', userTelephone = '$telephone', userStreet = '$street', userHousenr = '$housenr', userPostcode = '$postcode', userCity = '$city', userCountry = '$country', locked = '$locked' WHERE userID = '$userID'";
    $UserArray = mysqli_query ($db_link, $DatenbankUpdateUser);
 
    $UserFehlermeldung = "Sie haben die Daten erfolgreich geändert.";
