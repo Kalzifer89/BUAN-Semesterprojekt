@@ -59,7 +59,7 @@ foreach ($_SESSION['shoppingcart'] as $product_ID)
                     {
                       echo "                    <div class=\"item\"><span class=\"price\">".$product_ID['productPrice']."€</span>\n";
                       echo "                        <p class=\"item-name\">".$product_ID['productAmount']." x ".$product_ID['productNameDE']."</p>\n";
-                      echo "                        <p class=\"item-description\">Lorem ipsum dolor sit amet</p>\n";
+                      echo "                        <p class=\"item-description\">".$paymentlang[$_COOKIE['language']][6]."</p>\n";
                       echo "                    </div>";
 
                       $gesamtpreis = $gesamtpreis + $product_ID['productPrice'] * $product_ID['productAmount'];
